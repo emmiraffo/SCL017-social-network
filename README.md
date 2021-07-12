@@ -72,15 +72,15 @@ Una vez identificado el problema y el tipo de usuario, se procedió a diseñar l
 
 Inicio y Registro de Usuario:
 
-![FIGMA1]()
+![FIGMA1](src/imges/InicioSesión.png)
 
-Escribir publicación:
+![figma2](src/imges/RegistroUsuario.png)
 
-![figma2]()
+<!-- pendiente -->
 
 Muro:
 
-![]()
+<!-- pendiente -->
 
 [Link a Proyecto en Figma]()
 
