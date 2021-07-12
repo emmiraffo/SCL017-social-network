@@ -72,9 +72,9 @@ Una vez identificado el problema y el tipo de usuario, se procedió a diseñar l
 
 Inicio y Registro de Usuario:
 
-![FIGMA1](src/imges/InicioSesión.png)
+![FIGMA1](src/images/figmaInicio.png)
 
-![figma2](src/imges/RegistroUsuario.png)
+![figma2](src/images/figmaRegistro.png)
 
 <!-- pendiente -->
 
