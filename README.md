@@ -11,9 +11,9 @@ Nuestra planificación se encuentrada detallada en un excel en donde se organizo
 
 ## HISTORIAS DE USUARIOS
 
-1) COMO usuario de una red social  QUIERO registrarme en la página PARA poder ingresar a la comunidad y compartir reseñasdar de las peliculas y series que he visto, como tambien buscar información de las que quiero ver.
+### 1) COMO usuario de una red social  QUIERO registrarme en la página PARA poder ingresar a la comunidad y compartir reseñasdar de las peliculas y series que he visto, como tambien buscar información de las que quiero ver.
 
-Criterios de Aceptación:
+_Criterios de Aceptación:_
 
 *	Permitir al usuario el ingreso de un correo electrónico
 *	Mostrar mensaje de error si no ingresa un correo electrónico
@@ -22,9 +22,10 @@ Criterios de Aceptación:
 *	Se permite hacer click en botón "Crear cuenta" para validar los datos del registro.
 *	Mostrar mensaje donde se informa que ha sido enviado un correo a su cuenta confirmando el registro
 
-2) COMO alguien que quiere participar activamente en la red social  QUIERO ingresar en la página, a través mi cuenta de google? facebook?  PARA poder ingresar de manera más rápida a la comunidad.
 
-Criterios de Aceptación:
+### 2) COMO alguien que quiere participar activamente en la red social  QUIERO ingresar en la página, a través mi cuenta de google? facebook?  PARA poder ingresar de manera más rápida a la comunidad.
+
+_Criterios de Aceptación:_
 
 *	Permitir hacer click al botón "Ingresa con "
 *	Se mostrará mensaje de verificación de los permisos por parte de.
