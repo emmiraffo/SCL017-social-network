@@ -11,27 +11,37 @@
     
      
      <!-- registro de usuarios -->
-<h4>Registro de Usuarios</h4>
-<input id="name"   type="text" placeholder="Ingresa tu nombre">
-<input id="email"  type="text" placeholder="Ingresa email">
-<input id="password"  type="password" placeholder="Ingresa tu contraseña">
-<button id="crearCuentaUsuario">Crear Cuenta</button> 
+     <div id="centerForm"> 
+      <form name="formname" onsubmit="return false"></form>
+        <!-- registro de usuarios -->
+        <h2>Registro de Usuarios</h2>
+        <input id="name"   type="text" placeholder="Ingresa tu nombre"><br>
+        <br class="short-break">
+        <input id="email"  type="text" placeholder="Ingresa email"><br>
+        <br class="short-break">
+        <input id="password"  type="password" placeholder="Ingresa tu contraseña"><br>
+        <br class="short-break">
+        <button id="crearCuentaUsuario">Crear Cuenta</button> 
 
 
- <!-- INICIO/ Ingreso de usuarios existentes -->
- <h4>Ingreso de Usuarios</h4>
- <input id="email2"  type="email" value="" placeholder="Ingresa email">
- <input id="password2"  type="password" placeholder="Ingresa tu contraseña">
- <button id="signIn">Acceder</button> 
+        <!-- INICIO/ Ingreso de usuarios existentes -->
+        <h2>Ingreso de Usuarios</h2>
+        <input id="email2"  type="email" value="" placeholder="Ingresa email"><br>
+        <br class="short-break">
+        <input id="password2"  type="password" placeholder="Ingresa tu contraseña"><br>
+        <br class="short-break">
+        <button id="signIn">Acceder</button> 
 
 
-<button id="authGoogle">Ingresar con Google</button>
+        <button id="authGoogle">Ingresar con Google</button>
 
-<!-- <button id="authFB">Ingresa con Facebook</button> -->
+        <!-- <button id="authFB">Ingresa con Facebook</button> -->
 
-<button id="signOut">Cerra Sesión</button>
+        <button id="signOut">Cerra Sesión</button>
 
-<p id="mensajeUsuario"></p>
+        <p id="mensajeUsuario"></p>
+      </form>
+    </div>
 
 
 
