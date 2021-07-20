@@ -1,6 +1,17 @@
 // aqui exportaras las funciones que necesites
 
-export const myFunction = () => {
+const myFunction = {
   // aqui tu codigo
-  console.log('Hola mundo!');
+  crearCuentaEmailPass:(user, pass) =>{
+    console.log("sss");
+
+    return "X";
+  }
+
+
 };
+
+export default myFunction;
+
+// ACCESO DE USUARIOS EXISTENTES
+
