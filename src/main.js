@@ -1,42 +1,17 @@
-import  auth  from './lib/auth.js';
+// Archivo JS princpal- punto de entrada de la aplicación
 
-// para registrarse
-document.getElementById("crearCuentaUsuario").addEventListener("click", () => {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+import { changeRouter } from './router.js';
+import {templatePrincipal} from './pages/templatePrincipal.js';
 
-    auth.crearCuentaEmailPass(email, password, name);
-});
+// esta funcion es para cuando cargue la ventana se ejecute el init
+const init= () => {
+  document.getElementById('root').appendChild(templatePrincipal());
+// la pagina esta escuchando cambios de la url
+  window.addEventListener('hashchange', () => {
+      console.log("=>"+window.location.hash)
+     changeRouter(window.location.hash); //url nueva
+  });
+};
 
-// para ingresar
-document.getElementById("signIn").addEventListener("click", () =>{
-    let email = document.getElementById("email2").value;
-    let password = document.getElementById("password2").value;
+window.addEventListener('load', init);
 
-    auth.autEmailPass(email, password, () => { 
-        gestionarSecciones("sectionOne","sectionTwo")
-    })
-});
-
-// para ingreso con Google
-
-document.getElementById("authGoogle").addEventListener("click", () =>{
- auth.authCuentaGoogle(() => { 
-     gestionarSecciones("sectionOne","sectionTwo")
- })
- 
-})
-
-// para cerrar sesión
-document.getElementById("signOut").addEventListener("click", () =>{
-    auth.signOut();
-});
-
-//Para gestionar SPA
-
-function gestionarSecciones(ocultar, mostrar) {
-document.getElementById(ocultar).style.display="none";
-document.getElementById(mostrar).style.display="block";
-
-}

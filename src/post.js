@@ -1,4 +1,4 @@
-crearPost (uid, emailUser, titulo, descripcion, imagenLink, videoLink) {
+crearPost (uid, emailUser, titulo, descripcion, imagenLink, videoLink); {
     return this.Collection("posts").add ({
         uid: uid,
         autor: autor,
@@ -13,5 +13,5 @@ crearPost (uid, emailUser, titulo, descripcion, imagenLink, videoLink) {
 })
 .catch(error => {
     console.error("error creando el post => ${error}")
-})
-}
+});
+};
