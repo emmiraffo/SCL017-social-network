@@ -73,12 +73,9 @@ font-weight: bold;
     width: 100%;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
-    grid-template-rows: repeat(8, 1fr);
-    grid-row: minmax(100px, auto);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1fr);
 }
-
 
 
 header{
@@ -87,8 +84,9 @@ header{
     height: 10%;
     margin: 0;
     position: fixed;
-    grid-column: 3 / 3;
+    grid-column: 3;
     grid-row: 1;
+    display: flex;
 }
 
 
@@ -97,13 +95,21 @@ header{
     height: 100%; 
 }
 
-
-.linkPost {
-    grid-column: 1;
+.linkPost  {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #818181;
     grid-row: 2;
-    width: 100vw;
+    width: 75vw;
     height: 20px;
     background-color: rgb(253, 253, 175);
+    padding: 30px;
+    margin:  auto;
 }
 
 footer{
@@ -112,10 +118,9 @@ footer{
     height: 10vh;
     margin: 0;
     grid-column: 1;
-    grid-row: 8;
+    grid-row: 10;
     display: flex;
-    flex-direction: row;
-
+    align-content:flex-end;
 }
 
 .footer img{
