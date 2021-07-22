@@ -67,7 +67,7 @@ Una vez identificado el problema y el tipo de usuario, se procedió a diseñar l
 
 ![baja](src/images/propoBaja.jpg)
 
-## Prototipo de alta fidelidad (Figma):
+## Prototipo de alta fidelidad (Figma): https://www.figma.com/file/EmztTJd6TLyGL9t3UfGohS/Red-Social?node-id=178%3A63
 
 Inicio y Registro de Usuario:
 
