@@ -1,9 +1,5 @@
-// se coloca lo que importo
 
-
-export const templateRegistro = () => {
-const divHome = document.createElement('div');
-  const home = `
+export const templateRegistro = `
    <main id="homeRegister">
         <section id="startHome">
             <header>
@@ -23,25 +19,4 @@ const divHome = document.createElement('div');
         </section>
    </main>  
    `;
-  divHome.innerHTML = home;
-
-//   const btnG = divHome.querySelector('#btnGoogle');
-//   btnG.addEventListener('click', () => {
-//     loginGoogle();
-//   });
-
-//   const btnE = divHome.querySelector('#btnEntry');
-//   btnE.addEventListener('click', () => {
-//     const mail = divHome.querySelector('#emailEntry').value;
-//     const pass = divHome.querySelector('#passEntry').value;
-//     singIn(mail, pass);
-//   });
-
-//   const btnRegister = divHome.querySelector('#createAccount');
-//   btnRegister.addEventListener('click', () => {
-//     accountTemp();
-//   });
-
-  return divHome;
-}
 
