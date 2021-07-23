@@ -101,7 +101,7 @@ footer{
 }
 
 @media only screen  and (min-width:769px ) {
-    .footer{
+    footer {
         display: none;
     }
 
@@ -112,5 +112,7 @@ footer{
 
     .box{
         height: 80vh;
+        grid-template-rows: 20% 100%;
+
     }
 }
