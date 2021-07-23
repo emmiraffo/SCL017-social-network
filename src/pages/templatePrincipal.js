@@ -1,6 +1,6 @@
 export const templatePrincipal = () => {
-const divHome = document.createElement('div');
-  const home = `
+const divLogin = document.createElement('div');
+  const login = `
     <main id="homePrincipal">
     
         <section id="centerHome">
@@ -13,7 +13,7 @@ const divHome = document.createElement('div');
     </main>  
    `;
 
-  divHome.innerHTML = home;
+  divLogin.innerHTML = login;
 
 //   const btnG = divHome.querySelector('#btnGoogle');
 //   btnG.addEventListener('click', () => {
@@ -32,6 +32,6 @@ const divHome = document.createElement('div');
 //     accountTemp();
 //   });
 
-  return divHome;
+  return divLogin;
 };
 

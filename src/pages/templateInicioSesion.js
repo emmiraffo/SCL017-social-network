@@ -16,6 +16,7 @@ const divHome = document.createElement('div');
         <section>
             <button id="btnEntry3">Google</button>
         </section>
+        <h1>hello word</h1>
    </main>  
    `;
 
