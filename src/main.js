@@ -22,7 +22,6 @@ if (changeRouter(window.location.hash) === '#/Home'){
   changeRouter('#/Home')
 }
 
-
  } )  
 
 
@@ -30,3 +29,4 @@ window.addEventListener('hashchange', () => {
   console.log("=>"+window.location.hash)
  changeRouter(window.location.hash); //url nueva
 });
+

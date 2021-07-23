@@ -1,33 +1,31 @@
-$('#btnCrearPost').click(() =>{
-    const post = new Post()
-    const user = firebase.auth().currentUser
+import { crearPost, obtenerPost } from "./post.js"
 
-    if (user == null){
-        Materialize.toast("Registrate para crear tu publicación", 4000)
-        return
-    }
-    const titulo = $('#tituloNewPost').val()
-    const descripcion = $('#descripcionNewPost').val()
-    const videoLink = $('#linkVideoNewPost').val()
-    const imagenLink = sessionStorage.getItem('imgNewPost') == 'null'
-      ? null
-      : sessionStorage.getItem('imgNewPost')
-
-    post
-      .crearPost(
-        user.uid,
-        user.email,
-        titulo,
-        descripcion,
-        imagenLink,
-        videoLink
-      )
-      .then(resp => {
-        Materialize.toast(`Post creado correctamente`, 4000)
-        $('.modal').modal('close')
-      })
-      .catch(err => {
-        Materialize.toast(`Error => ${error}`, 4000)
-      })
+function listenersPosts() {
+  document.getElementById('btnCrearPost').addEventListener('click',()=>{  
+    let comentario = document.getElementById('textPost').value
+    crearPost('autor', comentario )
   })
-})
+}
+
+//DINAMISMO PARA MOSTRAR POST DE DATABASE
+function listarPosts() {
+  obtenerPost((querySnapshot)=>{
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      let data = doc.data()
+      const divPost = document.createElement('div')
+      divPost.classList.add('card') 
+      divPost.innerHTML = `
+        <h1>${data.autor}</h1>
+        <h2>${data.comentario}</h2>
+        <p>${data.fecha}</p>
+      `
+    document.getElementById('boxPosted').appendChild(divPost)
+  });
+  })
+}
+
+
+
+
+export { listenersPosts, listarPosts }

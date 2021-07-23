@@ -1,6 +1,4 @@
-export const templateInicioSesion = () => {
-const divHome = document.createElement('div');
-  const home = `
+export const templateInicioSesion = `
    <main id="homeSigIn">
         <section>
             <header>
@@ -20,8 +18,4 @@ const divHome = document.createElement('div');
    </main>  
    `;
 
-  divHome.innerHTML = home;
-
-  return divHome;
-}
 
