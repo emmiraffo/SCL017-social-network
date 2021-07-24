@@ -13,7 +13,7 @@ const auth = {
     }).c
   },
 
-  autEmailPass: (email, password) =>{
+  autEmailPass: (email, password, callback) =>{
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(result => {
       document.getElementById("mensajeUsuario").innerHTML = "Bienvenido, tu login fue exitoso"
@@ -21,6 +21,7 @@ const auth = {
         console.log(result.user.email);
       if(result.user.emailVerified){
         console.log("Tu email esta verificado")
+        callback() 
       }
       else{
         console.log("tu email no esta verificado")
@@ -38,14 +39,15 @@ const auth = {
 
   // para ingresar con Google
 
-  authCuentaGoogle: () => {
+  authCuentaGoogle: (callback) => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().signInWithPopup(provider)
       .then((result) => {
         // $("#avatar").attr("src", result.user.photoURL);
         console.log(result);
-      })
+        callback()     
+       })
 
       .catch((error) => {
         console.error(error);
