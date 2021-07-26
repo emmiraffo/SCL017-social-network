@@ -3,9 +3,8 @@ export const home = `
       <header class="header">
         <img src="images/logo.png"/>
         <p id="nombreUsuario"> Usuario </p>
-        <a href="#MiPerfil">Mi Perfil</a>
-        <a href="#">Salir</a>
-        
+        <a  href="#perfil">Mi Perfil</a>
+        <a id="logOut">Salir</a>
       </header>
 
       <div class='box'>
