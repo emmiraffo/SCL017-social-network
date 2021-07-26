@@ -1,0 +1,161 @@
+body{
+    margin: 0;
+}
+
+.sectionHome {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+   /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1fr);*/
+}
+
+
+header{
+    background-color:#FCE677;
+    width: 100vw;
+    height: 10vh;
+    margin: 0;
+    /*position: fixed;
+    grid-column: 3;
+    grid-row: 1;*/
+    display: flex;
+}
+
+
+.header img{
+    width: 90px;
+    height: 90px; 
+}
+
+.box{
+    height: 80vh;
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    
+}
+
+.containerPost  {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    width:80%;
+    height: 100px;
+    background-color: rgb(253, 253, 175);
+    position: absolute;
+    top: 12%;
+    left: 10%;
+}
+
+.containerPost textarea{
+    margin: auto;
+    width: 100%;
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.btnPost {
+    position: absolute;
+    width: 64px;
+    height: 20px;
+    left: 80%;
+    top: 100%;
+    background: #FF1663;
+    font-size: 10px;
+
+}
+
+#boxPosted{
+    background-color: rgb(114, 199, 30);
+    margin: auto;
+    width:100%;
+    height: 100%;
+    grid-row:2;
+    overflow-y: scroll;
+}
+
+.card{
+    background-color: #F5F3F3;
+    margin: 10px 30px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 7px 1px #020202;
+    border: 1px solid #0d0d0e;
+    margin:auto;
+    margin-top: 20px;
+    width: 80%;
+    /* height: 70%; */
+    border-radius: 30px;
+    flex-direction: column;
+    box-sizing: border-box;
+    }
+   
+.boxInformation{
+    margin-top:-40px;
+    padding: 4%;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+    
+}
+
+.boxBtn{
+    display: flex;
+    margin-top: 10px;
+  
+}
+.likeAndDislike:hover {
+    background-color: #2199e8;
+    color: #fff;
+  }
+
+
+  
+.button-container{
+    margin-left: 20px;
+}
+.likeAndDislike{
+    background-color: white ;
+    border: 2px solid ;
+    padding: 15px 35px;
+    border-radius: 4px;
+    color: black;
+
+}
+
+footer{
+    background-color:#FCE677;
+    width: 100vw;
+    height: 10vh;
+    margin-bottom: 0;
+
+}
+
+.footer img{
+    width: 30px;
+    height: 30px;  
+}
+
+@media only screen  and (min-width:769px ) {
+    .footer{
+        display: none;
+    }
+
+    .header img{
+        width: 100px;
+        height: 100px; 
+    }
+
+    .box{
+        height: 80vh;
+    }
+}
