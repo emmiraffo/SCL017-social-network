@@ -55,8 +55,4 @@ function listenerFile() {
 }
 
 
-
-
-
-
 export { listenersPosts, listarPosts, listenerFile }
