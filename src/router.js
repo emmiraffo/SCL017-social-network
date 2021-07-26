@@ -1,35 +1,46 @@
-import {templateRegistro} from './pages/templateRegistro.js';
-import {templateInicioSesion} from './pages/templateInicioSesion.js';
-import {templatePrincipal} from './pages/templatePrincipal.js';
-import {home} from './pages/templateHome.js';
-import { listenersPosts, listarPosts } from './fireBase/postController.js';
+import { templateRegistro } from "./pages/templateRegistro.js";
+import { templateInicioSesion } from "./pages/templateInicioSesion.js";
+import { home } from "./pages/templateHome.js";
+import { listenersPosts, listarPosts } from "./fireBase/postController.js";
+import { registerUser, signIn,logOut, openModal, closeModal, logInGoogle } from "./fireBase/auth.js";
 
 // changeRouter funcion para elegir la ruta a la que me dirijo
 export const changeRouter = (hash) => {
+  const root = document.getElementById("root");
 
-  const root = document.getElementById('root');
-
-  switch (hash) {
-    case '':
-      root.innerHTML = templatePrincipal;
-      //listeners de template principal
-      break;
-    case '#/RegistroUsuario':
-      root.innerHTML = templateRegistro;
-      //listeners de template registro
-      break;
-    case '#/InicioSesio':
-      root.innerHTML = templateInicioSesion;
-      //listeners de template inicio de sesion
-      break;
-    case '#/home':
-      root.innerHTML = home;
-      listenersPosts()
-      listarPosts()
-        break;
-    default:
-      root.innerHTML = `<h2>Página no existe</h2>`;
-      break;
-   
-  }
-}
+ // firebase.auth().onAuthStateChanged((user) => {
+    // if (user) {
+    //   switch (hash) {
+    //     case "#/home":
+    //       root.innerHTML = home;
+    //       listenersPosts();
+    //       listarPosts();
+    //       logOut();
+    //       break;
+    //     default:
+    //       window.location.hash = "#/home";
+    //   }
+    // } else {
+      switch (hash) {
+        case '':
+        case '#':
+        case "#login":
+           root.innerHTML = templateInicioSesion();
+          signIn();
+          openModal();
+          closeModal();
+          registerUser();
+          logInGoogle();
+          break;
+          case "#home":
+                   root.innerHTML = home;
+                   listenersPosts();
+                   listarPosts();
+                   logOut();
+                   break;
+        default:
+          window.location.hash = "";
+      }
+  //  }
+  //});
+};

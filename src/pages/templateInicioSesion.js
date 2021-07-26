@@ -1,21 +1,40 @@
-export const templateInicioSesion = `
-   <main id="homeSigIn">
-        <section>
-            <header>
-                <img class="logo" src="./img/logo.png">
-            </header>
-        </section>
+import {templateRegistro} from './templateRegistro.js'
 
-        <section>
-            <input type="email"    id="email2" placeholder="E-mail">
-            <input type="password" id="pass2" placeholder="Crear Contraseña">
-        </section>
+export const templateInicioSesion = () => {
+   
+    const templateInicioSesion = `
+            <main id="homeSigIn">
+            <section>
+                <header>
+                    <img class="logo" src="./img/logo.png">
+                </header>
+            </section>
 
-        <section>
-            <button id="btnEntry3">Google</button>
-        </section>
-        <h1>hello word</h1>
-   </main>  
-   `;
+            <section>
+                <input type="email"    id="email" placeholder="E-mail">
+                <input type="password" id="password" placeholder="Crear Contraseña">
+            </section>
 
+            <section>
+                <button id="btnSingIn">ENTRAR</button>
+            </section>
 
+            <p id="message"></p>
+
+            <section>
+                <p>Ingresa con:</p>
+                <button id="btnGoogle">GOOGLE</button> 
+               
+            </section>
+
+            <section>
+                <button id="btnRegister">REGISTRATE</button>
+            </section>
+
+        </main>  
+        `;
+
+   return  templateInicioSesion + templateRegistro;
+  
+
+}
