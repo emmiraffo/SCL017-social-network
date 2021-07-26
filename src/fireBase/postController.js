@@ -1,5 +1,4 @@
 import { crearPost, obtenerPost } from "./post.js"
-import { logOut } from "./auth.js";
 
 var imagenURL;
 
