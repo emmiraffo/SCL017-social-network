@@ -19,12 +19,6 @@ const init = () => {
 window.addEventListener('load', init); // cuando carga la pantalla por primera vez carga el init
 
 
-
-
-
-
-
-
 //window.addEventListener('load', () => {
   // document.getElementById('root').appendChild(templatePrincipal());
  // la pagina esta escuchando cambios de la url
@@ -51,5 +45,24 @@ window.addEventListener('load', init); // cuando carga la pantalla por primera v
 //  changeRouter(window.location.hash); //url nueva
 // });
 
+ changeRouter('#/');
+ if (changeRouter() === '#/RegistroUsuario'){
+   changeRouter('#/RegistroUsuario')
+ }
+ if (changeRouter() === '#/InicioSesion'){
+  changeRouter('#/InicioSesion')
+}
+if (changeRouter(window.location.hash) === '#/Home'){
+  changeRouter('#/Home')
+}
+if (changeRouter(window.location.hash) === '#/Perfil'){
+  changeRouter('#/Perfil')
+}
+ } )  
 
+
+window.addEventListener('hashchange', () => {
+  console.log("=>"+window.location.hash)
+ changeRouter(window.location.hash); //url nueva
+});
 

@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/6561e4c6c7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="home.css">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="perfil.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Social-Network</title>
   </head>
+  
   <body>
     <div id="root">
     </div>
     
-    
-    
-    <!-- -----------   CONFIGURACIÓN DE FIREBASE ------------- -->
-
+  
+<!-- -----------   CONFIGURACIÓN DE FIREBASE ------------- -->
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>  <!-- SCRIPT DE AUTENTICACION -->
@@ -37,12 +37,13 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-
-    <script type="module" src="main.js"></script>
     
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script type="module" src="main.js"></script>
     <script type="module" src="fireBase/post.js"></script> 
     <script type="module" src="fireBase/postController.js"></script>
 
+
   </body>
 </html>
+

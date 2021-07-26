@@ -16,9 +16,26 @@ function listarPosts() {
       const divPost = document.createElement('div')
       divPost.classList.add('card') 
       divPost.innerHTML = `
-        <h1>${data.autor}</h1>
-        <h2>${data.comentario}</h2>
-        <p>${data.fecha}</p>
+      <div class="boxInformation">
+      <h1>${data.autor}</h1>
+      <h2>${data.comentario}</h2>
+      <p>${data.fecha}</p>
+    </div>
+    <div class="boxBtn">
+      <div class="button-container like-container">
+        <a class = "likeAndDislike" href="#">
+          <i onclick="count()" class="fa fa-heart-o">  Like</i> 
+          <br>
+        </a>
+      </div>
+      <div class="button-container dislike-container">
+        <a class = "likeAndDislike" href="#">
+        <i onclick="count1()" class="fas fa-heart-broken">  Dislike</i>
+        <br>
+
+        </a>
+      </div>
+    </div>
       `
     document.getElementById('boxPosted').appendChild(divPost)
   });
