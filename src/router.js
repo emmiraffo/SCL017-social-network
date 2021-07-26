@@ -2,6 +2,7 @@ import {templateRegistro} from './pages/templateRegistro.js';
 import {templateInicioSesion} from './pages/templateInicioSesion.js';
 import {templatePrincipal} from './pages/templatePrincipal.js';
 import {home} from './pages/templateHome.js';
+import {perfil} from './pages/templatePerfil.js';
 import { listenersPosts, listarPosts } from './fireBase/postController.js';
 
 // changeRouter funcion para elegir la ruta a la que me dirijo
@@ -18,7 +19,7 @@ export const changeRouter = (hash) => {
       root.innerHTML = templateRegistro;
       //listeners de template registro
       break;
-    case '#/InicioSesio':
+    case '#/InicioSesion':
       root.innerHTML = templateInicioSesion;
       //listeners de template inicio de sesion
       break;
@@ -27,6 +28,11 @@ export const changeRouter = (hash) => {
       listenersPosts()
       listarPosts()
         break;
+    case '#/Perfil':
+      root.innerHTML = perfil;
+      listenersPosts()
+      listarPosts()
+      break;
     default:
       root.innerHTML = `<h2>Página no existe</h2>`;
       break;

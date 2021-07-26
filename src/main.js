@@ -21,7 +21,9 @@ window.addEventListener('load', () => {
 if (changeRouter(window.location.hash) === '#/Home'){
   changeRouter('#/Home')
 }
-
+if (changeRouter(window.location.hash) === '#/Perfil'){
+  changeRouter('#/Perfil')
+}
  } )  
 
 
