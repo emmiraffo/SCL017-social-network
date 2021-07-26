@@ -3,6 +3,7 @@ export const home = `
       <header class="header">
           <img src="images/logo.png"/>
            <p id="nombreUsuario"> la vaca loca </p>
+           <button id="logOut">Cerrar Sesion</button>
       </header>
       <div class='box'>
           <div id='post' class='containerPost'>
