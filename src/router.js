@@ -2,7 +2,7 @@ import {templateRegistro} from './pages/templateRegistro.js';
 import {templateInicioSesion} from './pages/templateInicioSesion.js';
 import {templatePrincipal} from './pages/templatePrincipal.js';
 import {home} from './pages/templateHome.js';
-import { listenersPosts, listarPosts } from './fireBase/postController.js';
+import { listenersPosts, listarPosts, listenerFile } from './fireBase/postController.js';
 
 // changeRouter funcion para elegir la ruta a la que me dirijo
 export const changeRouter = (hash) => {
@@ -26,6 +26,7 @@ export const changeRouter = (hash) => {
       root.innerHTML = home;
       listenersPosts()
       listarPosts()
+      listenerFile()
         break;
     default:
       root.innerHTML = `<h2>Página no existe</h2>`;
