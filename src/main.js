@@ -19,31 +19,6 @@ import {observer}  from './fireBase/auth.js';
 window.addEventListener('load', init); // cuando carga la pantalla por primera vez carga el init */
 
 
-//window.addEventListener('load', () => {
-  // document.getElementById('root').appendChild(templatePrincipal());
- // la pagina esta escuchando cambios de la url
- //1 Chequear si la sesion está activa
- // 2 en caso negativo 
- //3 caso que si está activo mostar la pagina que viene por hash
- //changeRouter('#/');
-
-  // if (changeRouter() === '#/register'){
-  //   changeRouter('#/register')
-  // }
-  // if (changeRouter() === '#/login'){
-  //   changeRouter('#login')
-  // }
-  // if (changeRouter(window.location.hash) === '#/home'){
-  //   changeRouter('#home')
-  // }
-
-// } )  
-
-
-// window.addEventListener('hashchange', () => {
-//   console.log("=>"+window.location.hash)
-//  changeRouter(window.location.hash); //url nueva
-// });
 window.addEventListener('load', () => {
 changeRouter('#/');
  if (changeRouter() === '#/login'){
@@ -62,4 +37,3 @@ window.addEventListener('hashchange', () => {
   console.log("=>"+window.location.hash)
  changeRouter(window.location.hash); //url nueva
 });
-
