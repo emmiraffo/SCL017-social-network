@@ -1,3 +1,75 @@
+.containerFondo{
+  background-image: url("images/loginFondo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+}
+
+.containerDiv{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  text-align: center;
+  margin-left: 700px;
+ 
+}
+.div2{
+  background-color: rgba(243, 244, 247, 0.9);
+  box-shadow: 3px 3px 7px 1px #a0a4a7;
+  padding: 40px;
+  border-radius: 30px;
+
+}
+.logo{
+  width: 70%;
+}
+
+.inputlogIn {
+  filter: drop-shadow(1px 2px 2px gray);
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 4%;
+  width: 80%;
+  padding: 2%;
+}
+
+.textLogin{
+  color: black;
+  font-weight: bold;
+  font-size: large;
+}
+
+.btnLogin{
+  background-color: #b80c37;
+  color: rgb(243, 241, 241);
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 60%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+} 
+
+.btnIcon{
+  width: 40px;
+  border:0 none;
+  padding-bottom: 5px;
+}
+
+#btnGoogle{
+  border:0 none;
+  cursor: pointer;
+}
+
+
+
+/* MODAL */
 .modal-container {
     opacity: 0;
     visibility: hidden;
@@ -13,15 +85,12 @@
     align-items: center;
   }
 
-
-  
-
 .modal {
     font-family: "Jura", sans-serif;
     font-size: 20px;
     font-style: bold;
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
     background: #fff;
     text-align: center;
     display: flex;
@@ -30,8 +99,7 @@
     position: relative;
     transition: transform 1s;
     transform: translateY(0%);
-    border: 8px solid transparent;
-    border-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%) 1;
+  
   }
   
   .close {
@@ -41,7 +109,7 @@
     display: inline-block;
     width: 25px;
     height: 25px;
-    background: #c44a4a;
+    background: #b80c37;
     color: #fff;
     line-height: 25px;
     cursor: pointer;
@@ -52,3 +120,43 @@
     transform: translateY(-200%);
   }
   
+  .contentModal{
+    display: flex;
+  }
+
+  .contentModal > div {
+    width: 50%;
+  }
+
+  input[type=text], input[type=password], input[type=email] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+}
+
+.contentModal h1{
+    color: #38B6FF; 
+    font-size: 40px;
+   
+}
+
+.textModal {
+  color: #EBC43B ;
+  font-weight: bold;
+  font-size: 30px;
+
+}
+
+.textInicioModal, .textFormModal{
+  margin: 10px;
+}
