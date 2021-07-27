@@ -19,10 +19,13 @@
     flex-direction: column;
     box-sizing: border-box;
     }
+
+
    
 .boxInformation{
-    margin-top:-40px;
-    padding: 4%;
+    margin-top:-10px;
+    padding: 1%;
+    align-content: center;
     /* overflow: hidden;
     text-overflow: ellipsis; */
     
