@@ -25,11 +25,13 @@ export const changeRouter = (hash) => {
       listarPosts()
       listenerFile()
       logOut()
+     
         break;
     case '#/perfil':
       root.innerHTML = perfil;
       listenersPosts()
       listarPosts()
+     
       break;
       default:
       root.innerHTML = `<h2>Página no existe</h2>`;

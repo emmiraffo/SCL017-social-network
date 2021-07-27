@@ -25,18 +25,15 @@ function listarPosts() {
       <p>${data.fecha}</p>
     </div>
     <div class="boxBtn">
-      <div class="button-container like-container">
-        <a class = "likeAndDislike" href="#">
-          <i onclick="count()" class="fa fa-heart-o">  Like</i> 
+      <div class="like-container">
+          <i  class="fa fa-heart-o">  Like</i> 
           <br>
-        </a>
+          <p>${data.like}</p>
       </div>
-      <div class="button-container dislike-container">
-        <a class = "likeAndDislike" href="#">
-        <i onclick="count1()" class="fas fa-heart-broken">  Dislike</i>
+      <div class="dislike-container">
+        <i class="fas fa-heart-broken">  Dislike</i>
         <br>
-
-        </a>
+        <p>${data.dislike}</p>
       </div>
     </div>
       `
@@ -44,6 +41,7 @@ function listarPosts() {
   });
   })
 }
+
 //OBTENER IMAGEN PARA POTS
 function listenerFile() {
   var uploader = document.getElementById('uploader');
@@ -70,7 +68,39 @@ function listenerFile() {
     });
 }
 
+// document.addEventListener("DOMContentLoaded", function(){
+//   let btnsDislike= document.getElementsByClassName("dislike-container");
+//   console.log(btnsDislike)
+//   console.log(btnsDislike.length)
+  
+  
+//   for (let i=0; i < btnsDislike.length; i++){
+//       btnsDislike[i].addEventListener("click", function(){
+//           console.log("llegamos al btn")
+//       counterLikes();
+//       })
+//   }
+//   })
+  
+//   function counterLikes (){
+//       var likeAndDislikeCounter = db.collection("post").doc[0].id;
+  
+//       // Set the "capital" field of the city 'DC'
+//       return likeAndDislikeCounter.update({
+//           like: firebase.firestore.FieldValue.increment(1),
+//           dislike: firebase.firestore.FieldValue.increment(1)
+      
+//       })
+      
+//       .then(() => {
+//           console.log("Document successfully updated!");
+//       })
+//       .catch((error) => {
+//           // The document probably doesn't exist.
+//           console.error("Error updating document: ", error);
+//       });
+//   };
+  
+  
 
-
-
-export { listenersPosts, listarPosts, listenerFile  }
+export { listenersPosts, listarPosts, listenerFile }
