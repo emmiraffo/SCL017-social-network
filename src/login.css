@@ -15,18 +15,19 @@
   min-height: 100vh;
   justify-content: center;
   text-align: center;
-  margin-left: 700px;
- 
+  margin: auto ;
+  width: 100%;
 }
+
 .div2{
   background-color: rgba(243, 244, 247, 0.9);
   box-shadow: 3px 3px 7px 1px #a0a4a7;
-  padding: 40px;
+  padding: 30px;
   border-radius: 30px;
 
 }
 .logo{
-  width: 70%;
+  width: 50%;
 }
 
 .inputlogIn {
@@ -45,7 +46,7 @@
 }
 
 .btnLogin{
-  background-color: #b80c37;
+  background-color: #FF1663;
   color: rgb(243, 241, 241);
   font-size: 20px;
   cursor: pointer;
@@ -76,7 +77,7 @@
     position: fixed;
     z-index: 1000;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -90,7 +91,7 @@
     font-size: 20px;
     font-style: bold;
     width: 50%;
-    height: 50%;
+    height: 65%;
     background: #fff;
     text-align: center;
     display: flex;
@@ -109,7 +110,7 @@
     display: inline-block;
     width: 25px;
     height: 25px;
-    background: #b80c37;
+    background: #FF1663;
     color: #fff;
     line-height: 25px;
     cursor: pointer;
@@ -125,7 +126,7 @@
   }
 
   .contentModal > div {
-    width: 50%;
+    width: 60%;
   }
 
   input[type=text], input[type=password], input[type=email] {
@@ -159,4 +160,16 @@
 
 .textInicioModal, .textFormModal{
   margin: 10px;
+}
+
+@media only screen  and (min-width:769px ) {
+  .containerDiv{
+    margin-left: 300px;
+    height: 50px;
+  }
+  .logo{
+    width: 40%;
+  }
+
+
 }

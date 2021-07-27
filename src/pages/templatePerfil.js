@@ -1,7 +1,7 @@
 export const perfil = `
     <div id=" sectionHome">
       <header class="header">
-          <img src="images/logo.png"/>
+      <img src="images/logo-removebg-preview.png"/>
            <p id="nombreUsuario"> la vaca loca </p>
       </header>
       <div class='box'>

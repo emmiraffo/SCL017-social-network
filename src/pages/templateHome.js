@@ -1,7 +1,7 @@
 export const home = `
     <div id=" sectionHome">
       <header class="header">
-        <img src="images/logo.png"/>
+        <img src="images/logo-removebg-preview.png"/>
        <div id="nombre">  </div>
         <a  href="#/perfil">Mi Perfil</a>
         <a id="logOut">Salir</a>
