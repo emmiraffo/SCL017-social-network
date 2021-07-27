@@ -3,27 +3,41 @@ import {templateRegistro} from './templateRegistro.js'
 export const templateInicioSesion = () => {
    
     const templateInicioSesion = `
-            <main id="homeSigIn">
-                <input type="email"    id="email" placeholder="E-mail">
-                <input type="password" id="password" placeholder="Crear Contraseña">
+
+   
+            <main id="homeSigIn" class= "containerFondo">
+
+            <div class= "containerDiv">
+
+            <section class="sectionLogo">
+            <img src="./images/logo-removebg-preview.png" class="logo" alt="logo">
+            </section>
+            <div class="div2">
+            <section>
+                <input class="inputlogIn" type="email"    id="email" placeholder="E-mail">
+                <input class="inputlogIn" type="password" id="password" placeholder="Contraseña">
             </section>
 
             <section>
-                <button id="btnSingIn">ENTRAR</button>
+                <button class="btnLogin" id="btnSingIn">ENTRAR</button>
             </section>
 
             <p id="message"></p>
 
             <section>
-                <p>Ingresa con:</p>
-                <button id="btnGoogle">GOOGLE</button> 
+                <p class="textLogin">Ingresa con:</p>
+
+                <button id="btnGoogle"> 
+                    <img class="btnIcon" src="./images/google-removebg-preview.png"  alt="google">
+                </button> 
                
             </section>
 
             <section>
-                <button id="btnRegister">REGISTRATE</button>
+                <button class="btnLogin" id="btnRegister">REGISTRATE</button>
             </section>
-
+            </div>
+            </div>
         </main>  
         `;
 

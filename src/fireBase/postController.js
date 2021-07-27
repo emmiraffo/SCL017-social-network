@@ -4,11 +4,36 @@ var imagenURL;
 
 
 function listenersPosts() {
-  document.getElementById('btnCrearPost').addEventListener('click',()=>{  
+  document.getElementById('btnCrearPost').addEventListener('click',()=>{ 
+    let autor = firebase.auth().currentUser.displayName;
+    console.log(autor)
     let comentario = document.getElementById('textPost').value
-    crearPost('autor', comentario , imagenURL )
+    crearPost( autor , comentario , imagenURL )
   })
+} ;
+
+
+
+function mostrarsaludo () {
+  const divName = document.createElement('div')
+  divName.innerHTML = ` 
+  <p id="nombreUsuario"> !Hola  ${firebase.auth().currentUser.displayName}! </p>
+  `
+  document.getElementById('nombre').appendChild(divName)
 }
+
+function mostrarNombreUsuario () {
+  const divName = document.createElement('div')
+  divName.innerHTML = ` 
+  <p id="nombreUsuario"> ${firebase.auth().currentUser.displayName} </p>
+  `
+  document.getElementById('nombre').appendChild(divName)
+}
+
+
+
+
+    
 
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
 function listarPosts() {
@@ -18,20 +43,29 @@ function listarPosts() {
       let data = doc.data()
       const divPost = document.createElement('div')
       divPost.classList.add('card') 
+      var fecha = new Date(data.fecha.seconds*1000).toLocaleString()
+
       divPost.innerHTML = `
       <div class="boxInformation">
       <h1>${data.autor}</h1>
       <h2>${data.comentario}</h2>
-      <p>${data.fecha}</p>
+      <p>${fecha}</p>
+      <div clase"imgMovie"><img src=${data.imagen}></div>
     </div>
     <div class="boxBtn">
+
       <div class="like-container">
           <i  class="fa fa-heart-o">  Like</i> 
+
+      
           <br>
           <p>${data.like}</p>
       </div>
+
       <div class="dislike-container">
         <i class="fas fa-heart-broken">  Dislike</i>
+
+      
         <br>
         <p>${data.dislike}</p>
       </div>
@@ -101,6 +135,6 @@ function listenerFile() {
 //       });
 //   };
   
-  
 
-export { listenersPosts, listarPosts, listenerFile }
+
+export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarsaludo}

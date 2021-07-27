@@ -1,7 +1,7 @@
 import { templateInicioSesion } from "./pages/templateInicioSesion.js";
 import { home } from "./pages/templateHome.js";
-import { registerUser, signIn,logOut, openModal, closeModal, logInGoogle } from "./fireBase/auth.js";
-import { listenersPosts, listarPosts, listenerFile } from './fireBase/postController.js';
+import { registerUser, signIn,logOut, openModal, closeModal, logInGoogle, onAuth } from "./fireBase/auth.js";
+import { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarsaludo} from './fireBase/postController.js';
 import {perfil} from './pages/templatePerfil.js';
 
 
@@ -25,13 +25,14 @@ export const changeRouter = (hash) => {
       listarPosts()
       listenerFile()
       logOut()
-     
+      onAuth(mostrarsaludo)
+
         break;
     case '#/perfil':
       root.innerHTML = perfil;
       listenersPosts()
       listarPosts()
-     
+      onAuth(mostrarNombreUsuario)
       break;
       default:
       root.innerHTML = `<h2>Página no existe</h2>`;

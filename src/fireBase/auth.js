@@ -82,6 +82,7 @@ function logInGoogle (){
         firebase.auth().signInWithPopup(provider)
           .then((result) => {
               console.log(result);
+              
             // $("#avatar").attr("src", result.user.photoURL);
             window.location.href="#/home";
            })
@@ -131,22 +132,19 @@ function signIn(){
 }
 
 //  funcion que observa los cambios del usuario 
-
-function observer(){
-    // firebase.auth().onAuthStateChanged((user) => {
-    //      // si el usuario esta activo/login
-    //     if (user) {
-    //      // usuario con email verificado
-    //       if (user.emailVerified) {
-    //         window.open('#/home', '_self'); //self se carga sobre si misma
-    //       }
-
-    //       // si el usuario no esta verificado
-    //     } else {
-    //       window.open('#/', '_self');
-    //     }
-    //   });
+function onAuth(looged, logout){
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            if (typeof looged == "function") {
+                looged()
+            }
+        } else {
+            if (typeof logout == "function") {
+                logout()
+            }
+        }
+      });
 }
 
-export {registerUser, signIn, logOut, openModal, closeModal, logInGoogle, observer}
+export {registerUser, signIn, logOut, openModal, closeModal, logInGoogle, onAuth}
   

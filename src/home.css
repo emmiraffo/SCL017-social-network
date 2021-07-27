@@ -8,7 +8,6 @@ body{
     margin: 0;
     display: flex;
     flex-direction: column;
-
 }
 
 
@@ -151,7 +150,27 @@ position: absolute;
     
   }
 
+.card h1 {
+    margin: 0;
+}
 
+.card p {
+    margin: 0;
+}
+.card h2 {
+    margin: 0;
+}
+
+
+.imgmovie {
+
+position: absolute;
+width: 100%;
+}
+
+.imgmovie img {
+    width: 100%;
+}
 
 #boxPosted{
     margin: auto;

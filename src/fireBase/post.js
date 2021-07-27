@@ -24,8 +24,6 @@ function crearPost (autor, comentario, imagen) {
 
 
 
-
-
 // CON ESTA FUNCIÓN VAMOS A OBTENER LA LISTA DE POSTS
 
 function obtenerPost (callBack) {

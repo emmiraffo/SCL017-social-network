@@ -5,39 +5,38 @@ export const templateRegistro = `
    <div class="modal modal-close">
      <p class="close">X</p>
 
-                <div class="container">
-                <div class="row">
-                    <div class="col s12 m6 registro-bienvenida">
-                        <h4>Bienvenido a MIRA</h4>
-                        <div class="registro-bienvenida-texto">
-                            Publica, qué tal las series y peliculas que estas viendo.
-                        </div>
-                        <span>Empieza Ahora</span>
+             <div class="contentModal">
+                    <div class="textInicioModal">
+                       <h1> Bienvenido a Mira </h1>
+                       <h3> Comparte reseñas sobre las peliculas y series que estas viendo.</h3>
+                       <p class="textModal"> Comienza Ahora </p>
                     </div>
-                    <div class="col s12 m6 registro-formulario">
-                        <div class="input-field">
-                            <input id="nombreContactoReg" value="anne.tejas.v" type="text"  maxlength="50" data-length="50" required />
-                            <label for="nombreContactoReg">Nombre:</label>
-                        </div>
-                        <div class="input-field">
-                            <input id="emailContactoReg" value="anne.tejas.v@gmail.com" type="email"  maxlength="50" data-length="50" required />
-                            <label for="emailContactoReg">E-mail:</label>
-                        </div>
-                        <div class="input-field">
-                            <input id="passwordReg" value="123456" type="password"  maxlength="10" data-length="10" required />
-                            <label for="passwordReg">Password:</label>
-                        </div>
-                        <div class="div-btnInicioSesion">
-                            <button id="btnRegisterUser" class="btn waves-effect waves-light">Registrarse </button>
-                        </div>      
+                    <div class="textFormModal">
+                        <div class="registro-formulario">
+                            <div class="input-field">
+                                 <label for="nombreContactoReg">Nombre:</label>
+                                <input id="nombreContactoReg"  type="text"  maxlength="50" data-length="50" required />
+                                
+                            </div>
+                            <div class="input-field">
+                                 <label for="emailContactoReg">E-mail:</label>
+                                <input id="emailContactoReg" type="email"  maxlength="50" data-length="50" required />
+                               
+                            </div>
+                            <div class="input-field">
+                                 <label for="passwordReg">Password:</label>
+                                <input id="passwordReg"  type="password"  maxlength="10" data-length="10" required />
+                               
+                            </div>
+                            <div class="div-btnInicioSesion">
+                                <button id="btnRegisterUser" class="btnLogin">Registrarse </button>
+                            </div>      
                         
-                        <div class="div-message">
-                        <p id="messageModal">. </p>
-                        </div> 
-
+                            <div class="div-message">
+                            <p id="messageModal">. </p>
+                            </div>  
                     </div>
-                </div>
-            </div>
+             </div>
 
        </div>
   </div>

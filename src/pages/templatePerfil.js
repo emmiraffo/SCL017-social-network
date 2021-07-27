@@ -1,8 +1,10 @@
 export const perfil = `
     <div id=" sectionHome">
-      <header class="header">
-          <img src="images/logo.png"/>
-           <p id="nombreUsuario"> la vaca loca </p>
+        <header class="header">
+        <img src="images/logo-removebg-preview.png"/>
+      <div id="nombre">  </div>
+        <a  href="#/home">Home</a>
+        <a id="logOut">Salir</a>
       </header>
       <div class='box'>
           <div id='post' class='containerPost'>
