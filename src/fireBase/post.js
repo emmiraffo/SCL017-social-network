@@ -5,10 +5,7 @@ function crearPost (autor, comentario, imagen) {
         autor: autor,
         comentario: comentario,
         imagen: imagen,
-        fecha: firebase.firestore.FieldValue.serverTimestamp(),
-        like:0,
-        dislike:0
-
+        fecha: firebase.firestore.FieldValue.serverTimestamp()
     }
 
 
@@ -30,9 +27,6 @@ function obtenerPost (callBack) {
     const dataBase = firebase.firestore()
     dataBase.collection("posts").get().then(callBack);
 }
-
-
-
 
 
 

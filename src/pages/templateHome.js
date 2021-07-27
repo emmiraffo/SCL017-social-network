@@ -18,7 +18,8 @@ export const home = `
             </div>
        </div>
       <footer class="footer">
-          <img src="images/user.png"/>
+         <a  href="#/perfil">Mi Perfil</a>
+        <a id="logOut">Salir</a>
        </footer>
   </div>
 `

@@ -1,31 +1,9 @@
 
-.card{
-    background-color: #F5F3F3;
-    margin: 10px 30px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 3px 3px 7px 1px #020202;
-    border: 1px solid #0d0d0e;
-    margin:auto;
-    margin-top: 20px;
-    width: 80%;
-    /* height: 70%; */
-    border-radius: 30px;
-    flex-direction: column;
-    box-sizing: border-box;
-    }
+
 
 
    
-.boxInformation{
-    margin-top:-10px;
-    padding: 1%;
-    align-content: center;
-    /* overflow: hidden;
-    text-overflow: ellipsis; */
-    
-}
+
 
 .boxBtn{
     display: flex;

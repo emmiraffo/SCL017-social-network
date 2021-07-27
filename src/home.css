@@ -23,16 +23,20 @@ header{
     overflow: hidden;
     position: fixed;
     z-index: 2;
+    font-size: 30px;
+    align-self: center;
+}
+
+
+
+header p {
+display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header a {
-    float: right;
-    display: block;
-    color: #000000;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-
+    display: none;
   }
 
 header a:hover {
@@ -57,9 +61,11 @@ header p {
 
 
 #uploader {
-width: 100px;
-height: 10px;
-position: absolute;
+width: 200px;
+height: 15px;
+margin-top: 35px;
+margin-left: 200px;
+
 }
 
 
@@ -69,17 +75,16 @@ position: absolute;
     background-color: rgb(255, 255, 255);
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 23% 80%;
+    grid-template-rows: 25% 80%;
     
 }
 
 .containerPost  {
-    
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
     width:80%;
-    height: 100px;
+    height: 10%;
     position: absolute;
     top: 12%;
     left: 10%;
@@ -94,32 +99,41 @@ position: absolute;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 20px;
     background-color: rgb(252, 247, 181) ;
     border-color: rgba(180, 180, 180, 0.45) ;
 }
 
 .btnPost {
     position: absolute;
-    width: 64px;
-    height: 20px;
+    width: 25%;
+    height: 30px;
     left: 80%;
     top: 100%;
     background: #FF1663;
-    font-size: 10px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    border-color: rgba(180, 180, 180, 0.45) ;
+    cursor: pointer;
+    font-weight:bold;
 
 }
+
+.btnPost:hover{
+    background: rgb(95, 95, 95) ;
+
+}
+
 
 .file{        
-        position: relative;
+        position: absolute;
         display: inline-block;
-        
+        margin-top: 20px;    
 }
-
 
 .file::before {
     background-color: #5677ef00;
-    color: rgb(145, 143, 143);
+    color: rgb(15, 100, 185);
     display: flex;            
     justify-content: center;
     align-items: center;
@@ -130,10 +144,7 @@ position: absolute;
     right: 0;
     top: 0;
     bottom: 0; 
-    font-size: 14px;
-   
-    
-               
+    font-size: 20px;            
   }
 
   .file input[type="file"] {
@@ -141,24 +152,41 @@ position: absolute;
     width: 200px;
     height: 32px;
     display: inline-block;  
-    cursor:pointer;  
     
   }
 
-  .file input:hover{
-    color: #ffa32a;   
-    
-  }
+
+  .card{
+    background-color: #F5F3F3;
+    margin: 10px 30px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 7px 1px #020202;
+    border: 1px solid #ffffff;
+    margin:auto;
+    margin-top: 20px;
+    width: 100%;
+    /*border-radius: 30px;*/
+    flex-direction: column;
+    box-sizing: border-box;
+    }
 
 .card h1 {
     margin: 0;
+    margin: 10px 30px 10px;
 }
 
 .card p {
     margin: 0;
+    color: lightslategrey;
+    margin-left: 80%;
 }
 .card h2 {
-    margin: 0;
+    margin: 10px 30px 10px;
+    text-align:justify;
+    font-weight: normal;
+    color: rgb(139, 141, 143);
 }
 
 
@@ -182,39 +210,114 @@ width: 100%;
 
 
 footer{
+    
+    left: 0;
+    bottom: 0;
     background-color:#FCE677;
     width: 100vw;
     height: 10vh;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    justify-content: center;
     overflow: hidden;
     position: fixed;
-    left: 0;
-    bottom: 0;
+ 
 }
 
-.footer img{
-    width: 30px;
-    height: 30px;  
-}
+
+footer a {
+    float: right;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+
+  }
+
+  footer a:hover {
+    background: #979797;
+    color: #ffa32a;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*PARA VISTA DESKTOP*/
 @media only screen  and (min-width:769px ) {
     header{
-        height: 11vh;
+        height: 7vh;
+        font-size: 30px;
     }
+
+    header a {
+        float:inline-end;
+        display: block;
+        color: #000000;
+        text-align: center;
+        align-content: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 25px;
+      }
+
+      header a:hover {
+        background: #979797;
+        color: #ffa32a;
+      }
 
     .footer{
         display: none;
     }
 
     .header img{
-        width: 70px;
-        height: 70px; 
-        margin-left: 5%;
+        height: 100%; 
+        margin-left: 10%;
     }
 
     .box{
         grid-template-rows: 30% 100%;
     }
+    .card{
+        
+        box-shadow: 3px 3px 7px 1px #020202;
+        border: 1px solid #ffffff;
+        margin-top: 30px;
+        width: 60%;
+        }
+     .boxInformation{
+        margin-top:-10px;
+        padding: 1%;
+        align-content: center;
+        width: 100%; 
+            }
+
+        .containerPost  {
+            height: 11%;
+        }
+
+        .btnPost {
+            width: 20%;
+        
+        }
 
 }

@@ -12,8 +12,6 @@ function listenersPosts() {
   })
 } ;
 
-
-
 function mostrarsaludo () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
@@ -21,7 +19,6 @@ function mostrarsaludo () {
   `
   document.getElementById('nombre').appendChild(divName)
 }
-
 function mostrarNombreUsuario () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
@@ -38,6 +35,7 @@ function mostrarNombreUsuario () {
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
 function listarPosts() {
   obtenerPost((querySnapshot)=>{
+    document.getElementById('boxPosted').innerHTML = ''
     querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data()}`);
       let data = doc.data()
@@ -50,14 +48,12 @@ function listarPosts() {
       <h1>${data.autor}</h1>
       <h2>${data.comentario}</h2>
       <p>${fecha}</p>
-      <div clase"imgMovie"><img src=${data.imagen}></div>
+      <div clase"imgMovie"><img src=${data.imagen} style="width: 100%";></div>
     </div>
     <div class="boxBtn">
 
       <div class="like-container">
           <i  class="fa fa-heart-o">  Like</i> 
-
-      
           <br>
           <p>${data.like}</p>
       </div>
@@ -65,7 +61,6 @@ function listarPosts() {
       <div class="dislike-container">
         <i class="fas fa-heart-broken">  Dislike</i>
 
-      
         <br>
         <p>${data.dislike}</p>
       </div>
