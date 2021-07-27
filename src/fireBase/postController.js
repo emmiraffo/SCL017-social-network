@@ -14,13 +14,24 @@ function listenersPosts() {
 
 
 
-function mostrarNombreUsuario () {
+function mostrarsaludo () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
   <p id="nombreUsuario"> !Hola  ${firebase.auth().currentUser.displayName}! </p>
   `
   document.getElementById('nombre').appendChild(divName)
 }
+
+function mostrarNombreUsuario () {
+  const divName = document.createElement('div')
+  divName.innerHTML = ` 
+  <p id="nombreUsuario"> ${firebase.auth().currentUser.displayName} </p>
+  `
+  document.getElementById('nombre').appendChild(divName)
+}
+
+
+
 
     
 
@@ -90,4 +101,4 @@ function listenerFile() {
 
 
 
-export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario }
+export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarsaludo}
