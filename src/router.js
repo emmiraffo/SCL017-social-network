@@ -26,8 +26,7 @@ export const changeRouter = (hash) => {
       listenerFile()
       logOut()
       onAuth(mostrarsaludo)
-      
-      
+
         break;
     case '#/perfil':
       root.innerHTML = perfil;
