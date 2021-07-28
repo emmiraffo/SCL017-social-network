@@ -17,22 +17,28 @@ header{
     height: 10vh;
     margin: 0;
     display: grid;
-    grid-template-columns: 30% 30% 15% 15%;
+    grid-template-columns: 25% 50% 10% 10%;
     grid-template-rows: 100%;
     justify-content: center;
     overflow: hidden;
     position: fixed;
     z-index: 2;
+    font-size: 30px;
+    align-self: center;
+}
+
+
+
+header p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    padding-top: 5px;
 }
 
 header a {
-    float: right;
-    display: block;
-    color: #000000;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-
+    display: none;
   }
 
 header a:hover {
@@ -42,8 +48,7 @@ header a:hover {
 
 
 .header img{
-    width: 80px;
-    height: 80px; 
+    height: 100%; 
 }
 
 header p {
@@ -56,10 +61,8 @@ header p {
   }
 
 
-#uploader {
-width: 100px;
-height: 10px;
-position: absolute;
+.uploader {
+display: none;
 }
 
 
@@ -69,96 +72,107 @@ position: absolute;
     background-color: rgb(255, 255, 255);
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 23% 80%;
+    grid-template-rows: 25% 80%;
+    
     
 }
 
 .containerPost  {
-    
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
     width:80%;
-    height: 100px;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 12%;
-    left: 10%;
-    
-    
+    left: 10%;   
+    display: flex;
+    flex-direction: column ;
 }
 
 .containerPost textarea{
     margin: auto;
+    height: 80px;
     width: 100%;
-    position: absolute;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 20px;
     background-color: rgb(252, 247, 181) ;
     border-color: rgba(180, 180, 180, 0.45) ;
 }
 
-.btnPost {
-    position: absolute;
-    width: 64px;
-    height: 20px;
-    left: 80%;
-    top: 100%;
-    background: #FF1663;
-    font-size: 10px;
+.divenviar {
+    display: grid;
+    grid-template-columns: 30% 30%;
+    grid-template-rows: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn {
+        background-color: #FF1663;
+        border: none;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+      
+}
+
+.btn:hover{
+    background: rgb(95, 95, 95) ;
 
 }
 
-.file{        
-        position: relative;
-        display: inline-block;
-        
+
+.divenviar label {
+    background-color: #FF1663;
+    color: white;
+    cursor: pointer;
+    padding: 12px 22px 12px;
+    font-size: 16px;
+    width: 200px;
+    border: none;
+  }
+
+  label:hover{
+    background: rgb(95, 95, 95) ;
+
 }
-
-
-.file::before {
-    background-color: #5677ef00;
-    color: rgb(145, 143, 143);
-    display: flex;            
+  .card{
+    background-color: #F5F3F3;
+    margin: 10px 30px 10px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 3px;
-    content: 'Agregar Foto'; /* testo por defecto */
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0; 
-    font-size: 14px;
-   
-    
-               
-  }
-
-  .file input[type="file"] {
-    opacity: 0;
-    width: 200px;
-    height: 32px;
-    display: inline-block;  
-    cursor:pointer;  
-    
-  }
-
-  .file input:hover{
-    color: #ffa32a;   
-    
-  }
+    box-shadow: 3px 3px 7px 1px #020202;
+    border: 1px solid #ffffff;
+    margin:auto;
+    margin-top: 20px;
+    width: 100%;
+    /*border-radius: 30px;*/
+    flex-direction: column;
+    box-sizing: border-box;
+    }
 
 .card h1 {
     margin: 0;
+    margin: 10px 30px 10px;
 }
 
 .card p {
     margin: 0;
+    color: lightslategrey;
+    margin-left: 60%;
+    font-size: 15px;
 }
 .card h2 {
-    margin: 0;
+    margin: 10px 30px 10px;
+    text-align:justify;
+    font-weight: normal;
+    color: rgb(139, 141, 143);
 }
 
 
@@ -182,39 +196,162 @@ width: 100%;
 
 
 footer{
+    
+    left: 0;
+    bottom: 0;
     background-color:#FCE677;
     width: 100vw;
     height: 10vh;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    justify-content: center;
     overflow: hidden;
     position: fixed;
-    left: 0;
-    bottom: 0;
+ 
 }
 
-.footer img{
-    width: 30px;
-    height: 30px;  
+
+footer a {
+    float: right;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+
+  }
+
+  footer a:hover {
+    background: #979797;
+    color: #ffa32a;
+  }
+
+
+/*PARA VISTA IPHONE*/
+@media only screen  and (min-width:375px ) and (MAX-width:767px ) {
+
+    header{
+        grid-template-columns: 20% 60% 10% ;
+        
+    }
+
+    header p {
+        font-size: 20PX;
+    }
+    .divenviar label {
+       padding-left: 20px;
+       padding-right: 20px;
+    }
+
+
+    .card{
+        font-size: 12px;
+        }
+
+    .containerPost textarea{
+        height: 50px;
+            
+        }
+
+    .divenviar {
+        grid-template-columns: 50% 50%;
+        }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*PARA VISTA DESKTOP*/
 @media only screen  and (min-width:769px ) {
     header{
-        height: 11vh;
+        height: 10vh;
+        font-size: 20px;
+        background-color:#FCE677;
+        width: 100vw;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 30% 30% 15% 15%;
+        grid-template-rows: 100%;
+        justify-content: center;
+        overflow: hidden;
+        position: fixed;
+        z-index: 2;
+        align-self: center;
+        
     }
+
+    header a {
+        float:inline-end;
+        display: block;
+        color: #000000;
+        text-align: center;
+        align-content: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        padding: 0px;
+        padding-top: 5px;
+      }
+header p{
+    padding: 0px;
+    padding-top: 5px;
+};
+      header a:hover {
+        background: #979797;
+        color: #ffa32a;
+      }
 
     .footer{
         display: none;
     }
 
     .header img{
-        width: 70px;
-        height: 70px; 
-        margin-left: 5%;
+        height: 100%; 
+        margin-left: 10%;
     }
+
+
 
     .box{
         grid-template-rows: 30% 100%;
     }
+    .card{
+        
+        box-shadow: 3px 3px 7px 1px #020202;
+        border: 1px solid #ffffff;
+        margin-top: 30px;
+        width: 60%;
+        }
+     .boxInformation{
+        margin-top:-10px;
+        padding: 1%;
+        align-content: center;
+        width: 100%; 
+            }
+
 
 }

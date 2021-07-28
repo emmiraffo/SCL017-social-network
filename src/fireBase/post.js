@@ -9,6 +9,7 @@ function crearPost (autor, comentario, imagen) {
         like:[],
         dislike:[]
 
+
     }
 
 
@@ -30,9 +31,6 @@ function obtenerPost (callBack) {
     const dataBase = firebase.firestore()
     dataBase.collection("posts").get().then(callBack);
 }
-
-
-
 
 
 

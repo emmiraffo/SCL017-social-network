@@ -21,18 +21,19 @@ export const changeRouter = (hash) => {
           break;
     case '#/home':
       root.innerHTML = home;
-      listenersPosts()
-      listarPosts()
-      listenerFile()
-      logOut()
-      onAuth(mostrarsaludo)
-
+        listenersPosts()
+        listarPosts()
+        listenerFile()
+        logOut()
+        onAuth(mostrarsaludo)
         break;
     case '#/perfil':
       root.innerHTML = perfil;
-      listenersPosts()
-      listarPosts()
-      onAuth(mostrarNombreUsuario)
+        listenersPosts()
+        listarPosts()
+        listenerFile()
+        logOut()
+        onAuth(mostrarNombreUsuario)
       break;
       default:
       root.innerHTML = `<h2>Página no existe</h2>`;

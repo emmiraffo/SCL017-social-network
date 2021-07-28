@@ -13,20 +13,21 @@ function listenersPosts() {
   })
 } ;
 
-
-
 function mostrarsaludo () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
-  <p id="nombreUsuario"> !Hola  ${firebase.auth().currentUser.displayName}! </p>
+
+  <p id="nombreUsuario"><br> !Hola, ${firebase.auth().currentUser.displayName}! </p>
+  
   `
   document.getElementById('nombre').appendChild(divName)
 }
-
 function mostrarNombreUsuario () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
-  <p id="nombreUsuario"> ${firebase.auth().currentUser.displayName} </p>
+  <p id="nombreUsuario"><br> ${firebase.auth().currentUser.displayName} </p>
+  <div clase"imgMovie"><img src=${firebase.auth().currentUser.photoURL} style="width: 100%";></div>
+    </div>
   `
   document.getElementById('nombre').appendChild(divName)
 }
@@ -39,6 +40,7 @@ function mostrarNombreUsuario () {
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
 function listarPosts() {
   obtenerPost((querySnapshot)=>{
+    document.getElementById('boxPosted').innerHTML = ''
     querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data()}`);
       let data = doc.data()
@@ -51,13 +53,15 @@ function listarPosts() {
       <h1>${data.autor}</h1>
       <h2>${data.comentario}</h2>
       <p>${fecha}</p>
-      <div clase"imgMovie"><img src=${data.imagen}></div>
+      <div clase"imgMovie"><img src=${data.imagen} style="width: 100%";></div>
     </div>
     <div class="boxBtn">
       <div class="like-container">
+
       <button id='like' class='likeButton' value='${doc.id}'> <i  class="fa fa-heart-o">  Like</i> </button>
           <br>
           <p>${data.like.length}</p>
+
       </div>
     </div>
       `
