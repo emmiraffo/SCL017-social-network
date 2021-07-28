@@ -22,19 +22,32 @@ function mostrarsaludo () {
   `
   document.getElementById('nombre').appendChild(divName)
 }
-function mostrarNombreUsuario () {
+function mostrarNombreUsuario () { 
   const divName = document.createElement('div')
   divName.innerHTML = ` 
   <p id="nombreUsuario"><br> ${firebase.auth().currentUser.displayName} </p>
-  <div clase"imgMovie"><img src=${firebase.auth().currentUser.photoURL} style="width: 100%";></div>
-    </div>
   `
-  document.getElementById('nombre').appendChild(divName)
+  document.getElementById('nombre').appendChild(divName);
 }
 
 
+function mostrarPhoto () { 
+const divphoto = document.createElement('div')
+const imagenUsuario = firebase.auth().currentUser.photoURL
 
-
+  if (imagenUsuario =! null ){
+    divphoto.innerHTML = ` 
+    <div clase"imgMovie"><img src=${imagenUsuario} ></div>
+    </div>
+    ` 
+    document.getElementById('photo').appendChild(divphoto)
+  }
+  else divphoto.innerHTML = ` 
+    <div ></div>
+    </div>
+    ` 
+    document.getElementById('photo').appendChild(divphoto)
+} 
     
 
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
@@ -51,9 +64,10 @@ function listarPosts() {
       divPost.innerHTML = `
       <div class="boxInformation">
       <h1>${data.autor}</h1>
-      <h2>${data.comentario}</h2>
       <p>${fecha}</p>
-      <div clase"imgMovie"><img src=${data.imagen} style="width: 100%";></div>
+      <h2>${data.comentario}</h2>
+      
+      <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>
     </div>
     <div class="boxBtn">
       <div class="like-container">
@@ -107,4 +121,4 @@ function listenerFile() {
 }
 
 
-export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarsaludo}
+export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarPhoto, mostrarsaludo}
