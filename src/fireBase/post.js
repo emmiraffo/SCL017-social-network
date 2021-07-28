@@ -5,7 +5,11 @@ function crearPost (autor, comentario, imagen) {
         autor: autor,
         comentario: comentario,
         imagen: imagen,
-        fecha: firebase.firestore.FieldValue.serverTimestamp()
+        fecha: firebase.firestore.FieldValue.serverTimestamp(),
+        like:[],
+        dislike:[]
+
+
     }
 
 

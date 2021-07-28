@@ -1,4 +1,5 @@
 import { crearPost, obtenerPost } from "./post.js"
+import { likePost, showLikes } from './postInteraction.js';
 
 var imagenURL;
 
@@ -46,7 +47,7 @@ function listarPosts() {
       const divPost = document.createElement('div')
       divPost.classList.add('card') 
       var fecha = new Date(data.fecha.seconds*1000).toLocaleString()
-
+      console.log(doc.id)
       divPost.innerHTML = `
       <div class="boxInformation">
       <h1>${data.autor}</h1>
@@ -55,22 +56,26 @@ function listarPosts() {
       <div clase"imgMovie"><img src=${data.imagen} style="width: 100%";></div>
     </div>
     <div class="boxBtn">
-
       <div class="like-container">
-          <i  class="fa fa-heart-o">  Like</i> 
+
+      <button id='like' class='likeButton' value='${doc.id}'> <i  class="fa fa-heart-o">  Like</i> </button>
           <br>
-          <p>${data.like}</p>
-      </div>
+          <p>${data.like.length}</p>
 
-      <div class="dislike-container">
-        <i class="fas fa-heart-broken">  Dislike</i>
-
-        <br>
-        <p>${data.dislike}</p>
       </div>
     </div>
       `
     document.getElementById('boxPosted').appendChild(divPost)
+
+    const likeButton = document.querySelectorAll('#like');
+    likeButton.forEach((item) => {
+      console.log("perro",item.value,"gato", item)
+      item.addEventListener('click', () => likePost(item.value, item));
+    });
+    likeButton.forEach((item) => {
+      console.log("el otro")
+      item.addEventListener('onload', showLikes(item.value, item));
+    });
   });
   })
 }
@@ -100,40 +105,6 @@ function listenerFile() {
 
     });
 }
-
-// document.addEventListener("DOMContentLoaded", function(){
-//   let btnsDislike= document.getElementsByClassName("dislike-container");
-//   console.log(btnsDislike)
-//   console.log(btnsDislike.length)
-  
-  
-//   for (let i=0; i < btnsDislike.length; i++){
-//       btnsDislike[i].addEventListener("click", function(){
-//           console.log("llegamos al btn")
-//       counterLikes();
-//       })
-//   }
-//   })
-  
-//   function counterLikes (){
-//       var likeAndDislikeCounter = db.collection("post").doc[0].id;
-  
-//       // Set the "capital" field of the city 'DC'
-//       return likeAndDislikeCounter.update({
-//           like: firebase.firestore.FieldValue.increment(1),
-//           dislike: firebase.firestore.FieldValue.increment(1)
-      
-//       })
-      
-//       .then(() => {
-//           console.log("Document successfully updated!");
-//       })
-//       .catch((error) => {
-//           // The document probably doesn't exist.
-//           console.error("Error updating document: ", error);
-//       });
-//   };
-  
 
 
 export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarsaludo}
