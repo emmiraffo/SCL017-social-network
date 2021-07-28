@@ -15,14 +15,18 @@ function listenersPosts() {
 function mostrarsaludo () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
-  <p id="nombreUsuario"> !Hola  ${firebase.auth().currentUser.displayName}! </p>
+
+  <p id="nombreUsuario"><br> !Hola, ${firebase.auth().currentUser.displayName}! </p>
+  
   `
   document.getElementById('nombre').appendChild(divName)
 }
 function mostrarNombreUsuario () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
-  <p id="nombreUsuario"> ${firebase.auth().currentUser.displayName} </p>
+  <p id="nombreUsuario"><br> ${firebase.auth().currentUser.displayName} </p>
+  <div clase"imgMovie"><img src=${firebase.auth().currentUser.photoURL} style="width: 100%";></div>
+    </div>
   `
   document.getElementById('nombre').appendChild(divName)
 }

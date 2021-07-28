@@ -17,7 +17,7 @@ header{
     height: 10vh;
     margin: 0;
     display: grid;
-    grid-template-columns: 30% 30% 15% 15%;
+    grid-template-columns: 25% 50% 10% 10%;
     grid-template-rows: 100%;
     justify-content: center;
     overflow: hidden;
@@ -30,9 +30,11 @@ header{
 
 
 header p {
-display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    padding-top: 5px;
 }
 
 header a {
@@ -46,8 +48,7 @@ header a:hover {
 
 
 .header img{
-    width: 80px;
-    height: 80px; 
+    height: 100%; 
 }
 
 header p {
@@ -60,12 +61,8 @@ header p {
   }
 
 
-#uploader {
-width: 200px;
-height: 15px;
-margin-top: 35px;
-margin-left: 200px;
-
+.uploader {
+display: none;
 }
 
 
@@ -77,6 +74,7 @@ margin-left: 200px;
     grid-template-columns: 100%;
     grid-template-rows: 25% 80%;
     
+    
 }
 
 .containerPost  {
@@ -84,18 +82,19 @@ margin-left: 200px;
     font-weight: normal;
     font-size: 30px;
     width:80%;
-    height: 10%;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 12%;
-    left: 10%;
-    
-    
+    left: 10%;   
+    display: flex;
+    flex-direction: column ;
 }
 
 .containerPost textarea{
     margin: auto;
+    height: 80px;
     width: 100%;
-    position: absolute;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -104,58 +103,44 @@ margin-left: 200px;
     border-color: rgba(180, 180, 180, 0.45) ;
 }
 
-.btnPost {
-    position: absolute;
-    width: 25%;
-    height: 30px;
-    left: 80%;
-    top: 100%;
-    background: #FF1663;
-    font-size: 20px;
-    color: rgb(255, 255, 255);
-    border-color: rgba(180, 180, 180, 0.45) ;
-    cursor: pointer;
-    font-weight:bold;
-
+.divenviar {
+    display: grid;
+    grid-template-columns: 30% 30%;
+    grid-template-rows: 100%;
+    width: 100%;
+    justify-content: center;
 }
 
-.btnPost:hover{
+.btn {
+        background-color: #FF1663;
+        border: none;
+        color: white;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+      
+}
+
+.btn:hover{
     background: rgb(95, 95, 95) ;
 
 }
 
 
-.file{        
-        position: absolute;
-        display: inline-block;
-        margin-top: 20px;    
-}
-
-.file::before {
-    background-color: #5677ef00;
-    color: rgb(15, 100, 185);
-    display: flex;            
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    content: 'Agregar Foto'; /* testo por defecto */
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0; 
-    font-size: 20px;            
-  }
-
-  .file input[type="file"] {
-    opacity: 0;
+.divenviar label {
+    background-color: #FF1663;
+    color: white;
+    cursor: pointer;
+    padding: 12px 22px 12px;
+    font-size: 16px;
     width: 200px;
-    height: 32px;
-    display: inline-block;  
-    
+    border: none;
   }
 
+  label:hover{
+    background: rgb(95, 95, 95) ;
 
+}
   .card{
     background-color: #F5F3F3;
     margin: 10px 30px 10px;
@@ -180,7 +165,8 @@ margin-left: 200px;
 .card p {
     margin: 0;
     color: lightslategrey;
-    margin-left: 80%;
+    margin-left: 60%;
+    font-size: 15px;
 }
 .card h2 {
     margin: 10px 30px 10px;
@@ -244,6 +230,44 @@ footer a {
   }
 
 
+/*PARA VISTA IPHONE*/
+@media only screen  and (min-width:375px ) and (MAX-width:767px ) {
+
+    header{
+        grid-template-columns: 20% 60% 10% ;
+        
+    }
+
+    header p {
+        font-size: 20PX;
+    }
+    .divenviar label {
+       padding-left: 20px;
+       padding-right: 20px;
+    }
+
+
+    .card{
+        font-size: 12px;
+        }
+
+    .containerPost textarea{
+        height: 50px;
+            
+        }
+
+    .divenviar {
+        grid-template-columns: 50% 50%;
+        }
+    
+}
+
+
+
+
+
+
+
 
 
 
@@ -265,8 +289,20 @@ footer a {
 /*PARA VISTA DESKTOP*/
 @media only screen  and (min-width:769px ) {
     header{
-        height: 7vh;
-        font-size: 30px;
+        height: 10vh;
+        font-size: 20px;
+        background-color:#FCE677;
+        width: 100vw;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 30% 30% 15% 15%;
+        grid-template-rows: 100%;
+        justify-content: center;
+        overflow: hidden;
+        position: fixed;
+        z-index: 2;
+        align-self: center;
+        
     }
 
     header a {
@@ -277,9 +313,13 @@ footer a {
         align-content: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-size: 25px;
+        padding: 0px;
+        padding-top: 5px;
       }
-
+header p{
+    padding: 0px;
+    padding-top: 5px;
+};
       header a:hover {
         background: #979797;
         color: #ffa32a;
@@ -293,6 +333,8 @@ footer a {
         height: 100%; 
         margin-left: 10%;
     }
+
+
 
     .box{
         grid-template-rows: 30% 100%;
@@ -311,13 +353,5 @@ footer a {
         width: 100%; 
             }
 
-        .containerPost  {
-            height: 11%;
-        }
-
-        .btnPost {
-            width: 20%;
-        
-        }
 
 }
