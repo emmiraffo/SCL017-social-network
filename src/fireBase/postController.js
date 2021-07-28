@@ -1,24 +1,15 @@
 import { crearPost, obtenerPost } from "./post.js"
 import { likePost, showLikes } from './postInteraction.js';
 
-var imagenURL;
+var imagenURL="";
 
 
-function listenersPosts() {
-  document.getElementById('btnCrearPost').addEventListener('click',()=>{ 
-    let autor = firebase.auth().currentUser.displayName;
-    console.log(autor)
-    let comentario = document.getElementById('textPost').value
-    crearPost( autor , comentario , imagenURL )
-  })
-} ;
+
 
 function mostrarsaludo () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
-
   <p id="nombreUsuario"><br> !Hola, ${firebase.auth().currentUser.displayName}! </p>
-  
   `
   document.getElementById('nombre').appendChild(divName)
 }
@@ -61,24 +52,26 @@ function listarPosts() {
       divPost.classList.add('card') 
       var fecha = new Date(data.fecha.seconds*1000).toLocaleString()
       console.log(doc.id)
-      divPost.innerHTML = `
+      let html = `
       <div class="boxInformation">
       <h1>${data.autor}</h1>
       <p>${fecha}</p>
-      <h2>${data.comentario}</h2>
+      <h2>${data.comentario}</h2> `
       
-      <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>
-    </div>
+      if(data.imagen) {
+        html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`
+      }
+     
+      html += `</div>
     <div class="boxBtn">
       <div class="like-container">
-
       <button id='like' class='likeButton' value='${doc.id}'> <i  class="fa fa-heart-o">  Like</i> </button>
           <br>
           <p>${data.like.length}</p>
-
       </div>
     </div>
       `
+    divPost.innerHTML = html
     document.getElementById('boxPosted').appendChild(divPost)
 
     const likeButton = document.querySelectorAll('#like');
@@ -119,6 +112,16 @@ function listenerFile() {
 
     });
 }
+
+
+function listenersPosts() {
+  document.getElementById('btnCrearPost').addEventListener('click',()=>{ 
+    let autor = firebase.auth().currentUser.displayName;
+    console.log(autor)
+    let comentario = document.getElementById('textPost').value
+    crearPost( autor , comentario , imagenURL )
+  })
+} ;
 
 
 export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarPhoto, mostrarsaludo}

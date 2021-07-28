@@ -9,7 +9,7 @@ export const home = `
 
       <div class='box'>
           <div id='post' class='containerPost'>
-          <textarea required id='textPost' class="boxPost" type="textarea" rows="4"  placeholder="¿Qué quieres compartir?"></textarea> 
+          <textarea  id='textPost' class="boxPost" type="textarea" rows="4"  placeholder="¿Qué quieres compartir?"></textarea> 
         <div class="divenviar">
           <div class="file" >
             <label for="file"><i class="fa fa-file-image"></i> IMAGEN</label>
