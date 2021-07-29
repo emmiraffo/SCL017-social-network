@@ -42,8 +42,9 @@ function mostrarPhoto () {
 
 
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
-function listarPosts() {
-  obtenerPost((querySnapshot)=>{
+function listarPosts(idUser) {
+  console.log(idUser);
+  obtenerPost(idUser, (querySnapshot)=>{
     document.getElementById('boxPosted').innerHTML = ''
     querySnapshot.forEach((doc) => {
     //  console.log(`${doc.id} => ${doc.data()}`);
