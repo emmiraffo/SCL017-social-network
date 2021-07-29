@@ -23,27 +23,21 @@ function mostrarNombreUsuario () {
 
 
 function mostrarPhoto () { 
+  const imagenUsuario = firebase.auth().currentUser.photoURL
+
+  if (imagenUsuario){
     const divphoto = document.createElement('div')
-    const imagenUsuario = firebase.auth().currentUser.photoURL
-
-      if (imagenUsuario =! null ){
-        divphoto.innerHTML = ` 
+    
+    divphoto.innerHTML = ` 
         <div clase"imgMovie"><img src=${imagenUsuario} ></div>
-        </div>
         ` 
-        document.getElementById('photo').appendChild(divphoto)
-      }
-      else divphoto.innerHTML = ` 
-        <div ></div>
-        </div>
-        ` 
-        document.getElementById('photo').appendChild(divphoto)
+        document.getElementById("photo").appendChild(divphoto)
     } 
-
+}
 
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
 function listarPosts(idUser) {
-  console.log(idUser);
+ // console.log(idUser);
   obtenerPost(idUser, (querySnapshot)=>{
     document.getElementById('boxPosted').innerHTML = ''
     querySnapshot.forEach((doc) => {
