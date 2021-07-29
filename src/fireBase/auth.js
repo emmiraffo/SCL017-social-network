@@ -97,6 +97,17 @@ function logInGoogle (){
 
 // para cerrar sesión
 function logOut (){
+    document.getElementById('flogOut').addEventListener('click',()=>{ 
+        firebase.auth().signOut()
+        .then(function () {
+         console.log("sesion cerrada");
+          window.location.hash = '';
+        }).catch(function (error) {
+         console.log(error);
+        });
+
+    });
+
     document.getElementById('logOut').addEventListener('click',()=>{ 
         firebase.auth().signOut()
         .then(function () {

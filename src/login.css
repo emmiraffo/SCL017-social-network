@@ -1,5 +1,5 @@
 .containerFondo{
-  background-image: url("images/loginFondo.png");
+  background-image: url("images/fondo1.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -168,7 +168,7 @@
     height: 50px;
   }
   .logo{
-    width: 40%;
+    width: 60%;
   }
 
 

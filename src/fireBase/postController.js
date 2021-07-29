@@ -1,81 +1,89 @@
 import { crearPost, obtenerPost } from "./post.js"
 import { likePost, showLikes } from './postInteraction.js';
 
-var imagenURL;
+var imagenURL="";
 
 
-function listenersPosts() {
-  document.getElementById('btnCrearPost').addEventListener('click',()=>{ 
-    let autor = firebase.auth().currentUser.displayName;
-    console.log(autor)
-    let comentario = document.getElementById('textPost').value
-    crearPost( autor , comentario , imagenURL )
-  })
-} ;
+
 
 function mostrarsaludo () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
-
   <p id="nombreUsuario"><br> !Hola, ${firebase.auth().currentUser.displayName}! </p>
-  
   `
   document.getElementById('nombre').appendChild(divName)
 }
-function mostrarNombreUsuario () {
+function mostrarNombreUsuario () { 
   const divName = document.createElement('div')
   divName.innerHTML = ` 
   <p id="nombreUsuario"><br> ${firebase.auth().currentUser.displayName} </p>
-  <div clase"imgMovie"><img src=${firebase.auth().currentUser.photoURL} style="width: 100%";></div>
-    </div>
   `
-  document.getElementById('nombre').appendChild(divName)
+  document.getElementById('nombre').appendChild(divName);
 }
 
 
+function mostrarPhoto () { 
+    const divphoto = document.createElement('div')
+    const imagenUsuario = firebase.auth().currentUser.photoURL
 
+      if (imagenUsuario =! null ){
+        divphoto.innerHTML = ` 
+        <div clase"imgMovie"><img src=${imagenUsuario} ></div>
+        </div>
+        ` 
+        document.getElementById('photo').appendChild(divphoto)
+      }
+      else divphoto.innerHTML = ` 
+        <div ></div>
+        </div>
+        ` 
+        document.getElementById('photo').appendChild(divphoto)
+    } 
 
-    
 
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
-function listarPosts() {
-  obtenerPost((querySnapshot)=>{
+function listarPosts(idUser) {
+  console.log(idUser);
+  obtenerPost(idUser, (querySnapshot)=>{
     document.getElementById('boxPosted').innerHTML = ''
     querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
+    //  console.log(`${doc.id} => ${doc.data()}`);
       let data = doc.data()
       const divPost = document.createElement('div')
       divPost.classList.add('card') 
       var fecha = new Date(data.fecha.seconds*1000).toLocaleString()
-      console.log(doc.id)
-      divPost.innerHTML = `
+      //console.log(doc.id)
+      let html = `
       <div class="boxInformation">
       <h1>${data.autor}</h1>
-      <h2>${data.comentario}</h2>
       <p>${fecha}</p>
-      <div clase"imgMovie"><img src=${data.imagen} style="width: 100%";></div>
-    </div>
+      <h2>${data.comentario}</h2> `
+      
+      if(data.imagen) {
+        html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`
+      }
+     
+      html += `</div>
     <div class="boxBtn">
       <div class="like-container">
 
       <button id='like' class='likeButton' value='${doc.id}'><i class="fas fa-heart"></i></button>
-
-   
           <br>
           <p style="display:inlike-block;">${data.like.length} Me gusta</p>
 
       </div>
     </div>
       `
+    divPost.innerHTML = html
     document.getElementById('boxPosted').appendChild(divPost)
 
     const likeButton = document.querySelectorAll('#like');
     likeButton.forEach((item) => {
-      console.log("perro",item.value,"gato", item)
+      //console.log("perro",item.value,"gato", item)
       item.addEventListener('click', () => likePost(item.value, item));
     });
     likeButton.forEach((item) => {
-      console.log("el otro")
+    //  console.log("el otro")
       item.addEventListener('onload', showLikes(item.value, item));
     });
   });
@@ -109,4 +117,13 @@ function listenerFile() {
 }
 
 
-export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarsaludo}
+function listenersPosts() {
+  document.getElementById('btnCrearPost').addEventListener('click',()=>{ 
+    let autor = firebase.auth().currentUser.displayName;
+    let comentario = document.getElementById('textPost').value
+    crearPost( autor , comentario , imagenURL )
+  })
+} ;
+
+
+export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarPhoto, mostrarsaludo}

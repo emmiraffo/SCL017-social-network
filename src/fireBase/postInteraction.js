@@ -28,7 +28,7 @@ export const isLiked = (likes) => {
             .update({
               like: firebase.firestore.FieldValue.arrayRemove(userName),
             });
-          corelike.style.color = '#7EB3DD';
+          corelike.style.color = '#0a0a0a';
         } else {
           firebase
             .firestore()
@@ -56,7 +56,7 @@ export const isLiked = (likes) => {
           if (likes[i] === firebase.auth().currentUser.displayName) {
             button1.style.color = '#e23b3b';
           } else {
-            button1.style.color  = '#7EB3DD';
+            button1.style.color  = '#0a0a0a';
           }
         }
       });
