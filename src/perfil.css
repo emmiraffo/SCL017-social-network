@@ -1,31 +1,11 @@
 
 
-
-
-   
-
-/*
-.boxBtn{
-    display: flex;
-    margin-top: 10px;
-  
-}
-.likeAndDislike:hover {
-    background-color: #2199e8;
-    color: #fff;
-  }
-
-
-  
-.button-container{
-    margin-left: 20px;
-}
-.likeAndDislike{
-    background-color: white ;
-    border: 2px solid ;
-    padding: 15px 35px;
-    border-radius: 4px;
-    color: black;
-
+.likeButton{
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor:pointer;
+    color:#7EB3DD;  
 }
 

@@ -1,3 +1,4 @@
+
 import { crearPost, obtenerPost } from "./post.js"
 import { likePost, showLikes } from './postInteraction.js';
 
@@ -60,12 +61,15 @@ function listarPosts(idUser) {
       html += `</div>
     <div class="boxBtn">
       <div class="like-container">
-      <button id='like' class='likeButton' value='${doc.id}'> <i  class="fa fa-heart-o">  Like</i> </button>
+
+      <button id='like' class='likeButton' value='${doc.id}'><i class="fas fa-heart"></i></button>
           <br>
-          <p>${data.like.length}</p>
+          <p style="display:inlike-block;">${data.like.length} Me gusta</p>
+
       </div>
     </div>
       `
+      
     divPost.innerHTML = html
     document.getElementById('boxPosted').appendChild(divPost)
 

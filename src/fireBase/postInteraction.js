@@ -28,7 +28,7 @@ export const isLiked = (likes) => {
             .update({
               like: firebase.firestore.FieldValue.arrayRemove(userName),
             });
-          corelike.style.background = '#7EB3DD';
+          corelike.style.color = '#0a0a0a';
         } else {
           firebase
             .firestore()
@@ -37,14 +37,14 @@ export const isLiked = (likes) => {
             .update({
               like: firebase.firestore.FieldValue.arrayUnion(userName),
             });
-          corelike.style.background = '#797ad4';
+          corelike.style.color = '#e23b3b';
         }
       });
   };
   
   // verifies if the current user put like in the posts
-  export const showLikes = (postId, button) => {
-    const button1 = button;
+  export const showLikes = (postId, likeButton) => {
+    const button1 = likeButton;
     firebase
       .firestore()
       .collection('posts')
@@ -54,11 +54,11 @@ export const isLiked = (likes) => {
         const likes = doc.data().like;
         for (let i = 0; i < likes.length; i += 1) {
           if (likes[i] === firebase.auth().currentUser.displayName) {
-            button1.style.background = '#797ad4';
+            button1.style.color = '#e23b3b';
           } else {
-            button1.style.background = '#7EB3DD';
+            button1.style.color  = '#0a0a0a';
           }
         }
       });
   };
-  
+
