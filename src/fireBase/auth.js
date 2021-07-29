@@ -81,7 +81,7 @@ function logInGoogle (){
 
         firebase.auth().signInWithPopup(provider)
           .then((result) => {
-              console.log(result);
+          //    console.log(result);
               
             // $("#avatar").attr("src", result.user.photoURL);
             window.location.href="#/home";
