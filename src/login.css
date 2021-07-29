@@ -1,5 +1,9 @@
 .containerFondo{
+<<<<<<< HEAD
   background-image: url("images/popcorn11.jpg");
+=======
+  background-image: url("images/fondo1.png");
+>>>>>>> 773357785092b8183827a84b1bae38a13968d95e
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh; 
@@ -171,7 +175,11 @@
   }
 
   .logo{
+<<<<<<< HEAD
     width: 70%;
+=======
+    width: 60%;
+>>>>>>> 773357785092b8183827a84b1bae38a13968d95e
   }
 
   .containerFondo{

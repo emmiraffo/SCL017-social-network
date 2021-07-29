@@ -10,7 +10,7 @@ export const templateInicioSesion = () => {
             <div class= "containerDiv">
 
             <section class="sectionLogo">
-            <img src="./images/logo-removebg-preview.png" class="logo" alt="logo">
+            <img src="./images/1 (2).png" class="logo" alt="logo">
             </section>
             <div class="div2">
             <section>
