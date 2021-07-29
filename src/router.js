@@ -30,11 +30,11 @@ export const changeRouter = (hash) => {
     case '#/perfil':
       root.innerHTML = perfil;
         listenersPosts()
-        listarPosts()
+        listarPosts(firebase.auth().currentUser.uid)
         listenerFile()
         logOut()
         onAuth(mostrarNombreUsuario)
-        mostrarPhoto()
+        // mostrarPhoto()
       break;
       default:
       root.innerHTML = `<h2>Página no existe</h2>`;
