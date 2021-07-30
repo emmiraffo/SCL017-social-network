@@ -53,7 +53,6 @@ function listarPosts(idUser) {
       <h1>${data.autor}</h1>
       <p>${fecha}</p>
       <h2>${data.comentario}</h2> `
-      
       if(data.imagen) {
         html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`
       }
@@ -69,19 +68,19 @@ function listarPosts(idUser) {
       </div>
     </div>
       `
-      
-    divPost.innerHTML = html
-    document.getElementById('boxPosted').appendChild(divPost)
-
-    const likeButton = document.querySelectorAll('#like');
-    likeButton.forEach((item) => {
-      //console.log("perro",item.value,"gato", item)
-      item.addEventListener('click', () => likePost(item.value, item));
-    });
-    likeButton.forEach((item) => {
-    //  console.log("el otro")
-      item.addEventListener('onload', showLikes(item.value, item));
-    });
+        divPost.innerHTML = html
+        document.getElementById('boxPosted').appendChild(divPost)
+ 
+        const likeButton = document.querySelectorAll('#like');
+        likeButton.forEach((item) => {
+     
+          item.addEventListener('click', () => likePost(item.value, item));
+        });
+        likeButton.forEach((item) => {
+    
+          item.addEventListener('onload', showLikes(item.value, item));
+        });
+    
   });
   })
 }
