@@ -245,6 +245,12 @@ header p {
         width: 67px;  
     }
 
+
+.box{
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 70%;   
+}
+
 .file {
     padding-left: 20px;
     padding-right: 20px;
@@ -259,12 +265,7 @@ header p {
     font-size: 12px;
     }
 
-.containerPost textarea{
-    height: 50px;
-    font-size: 15PX;
-        
-    }
-
+   
 .divenviar {
     grid-template-columns: 50% 50%;
     }
@@ -317,7 +318,7 @@ footer a {
 /*PARA VISTA DESKTOP*/
 @media only screen  and (min-width:769px ) {
 header{
-    height: 10vh;
+    height: 10%;
     font-size: 20px;
     width: 100vw;
     margin: 0;
@@ -353,10 +354,28 @@ header a:hover {
       }
 
 .header img{
-    height:100%;
     width: auto; 
     margin-left: 10%;
 }
+
+.photo img {
+    width: 50%;  
+}
+
+
+
+.containerPost textarea{
+    height: 40px;
+    font-size: 15PX;
+        
+    }
+
+
+
+
+
+
+
 
 .footer{
     display: none;

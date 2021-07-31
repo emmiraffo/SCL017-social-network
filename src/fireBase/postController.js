@@ -1,3 +1,4 @@
+
 import { crearPost, obtenerPost } from "./post.js"
 import { likePost, showLikes } from './postInteraction.js';
 
@@ -23,27 +24,21 @@ function mostrarNombreUsuario () {
 
 
 function mostrarPhoto () { 
+  const imagenUsuario = firebase.auth().currentUser.photoURL
+
+  if (imagenUsuario){
     const divphoto = document.createElement('div')
-    const imagenUsuario = firebase.auth().currentUser.photoURL
-
-      if (imagenUsuario =! null ){
-        divphoto.innerHTML = ` 
+    
+    divphoto.innerHTML = ` 
         <div clase"imgMovie"><img src=${imagenUsuario} ></div>
-        </div>
         ` 
-        document.getElementById('photo').appendChild(divphoto)
-      }
-      else divphoto.innerHTML = ` 
-        <div ></div>
-        </div>
-        ` 
-        document.getElementById('photo').appendChild(divphoto)
+        document.getElementById("photo").appendChild(divphoto)
     } 
-
+}
 
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
 function listarPosts(idUser) {
-  console.log(idUser);
+ // console.log(idUser);
   obtenerPost(idUser, (querySnapshot)=>{
     document.getElementById('boxPosted').innerHTML = ''
     querySnapshot.forEach((doc) => {
@@ -58,7 +53,6 @@ function listarPosts(idUser) {
       <h1>${data.autor}</h1>
       <p>${fecha}</p>
       <h2>${data.comentario}</h2> `
-      
       if(data.imagen) {
         html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`
       }
@@ -66,24 +60,27 @@ function listarPosts(idUser) {
       html += `</div>
     <div class="boxBtn">
       <div class="like-container">
-      <button id='like' class='likeButton' value='${doc.id}'> <i  class="fa fa-heart-o">  Like</i> </button>
+
+      <button id='like' class='likeButton' value='${doc.id}'><i class="fas fa-heart"></i></button>
           <br>
-          <p>${data.like.length}</p>
+          <p style="display:inlike-block;">${data.like.length} Me gusta</p>
+
       </div>
     </div>
       `
-    divPost.innerHTML = html
-    document.getElementById('boxPosted').appendChild(divPost)
-
-    const likeButton = document.querySelectorAll('#like');
-    likeButton.forEach((item) => {
-      //console.log("perro",item.value,"gato", item)
-      item.addEventListener('click', () => likePost(item.value, item));
-    });
-    likeButton.forEach((item) => {
-    //  console.log("el otro")
-      item.addEventListener('onload', showLikes(item.value, item));
-    });
+        divPost.innerHTML = html
+        document.getElementById('boxPosted').appendChild(divPost)
+ 
+        const likeButton = document.querySelectorAll('#like');
+        likeButton.forEach((item) => {
+     
+          item.addEventListener('click', () => likePost(item.value, item));
+        });
+        likeButton.forEach((item) => {
+    
+          item.addEventListener('onload', showLikes(item.value, item));
+        });
+    
   });
   })
 }

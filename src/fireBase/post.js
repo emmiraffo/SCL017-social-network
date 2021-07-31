@@ -19,6 +19,7 @@ function crearPost (autor, comentario, imagen) {
     .then(refDoc =>{
         //console.log("Id del post => ${refDoc.id}")
         listarPosts()
+        
     })
     .catch(error => {
         alert("error creando el post => ${error}")
@@ -30,7 +31,7 @@ function crearPost (autor, comentario, imagen) {
 // CON ESTA FUNCIÓN VAMOS A OBTENER LA LISTA DE POSTS
 
 function obtenerPost (idUser, callBack) {
-    console.log(idUser);
+  //  console.log(idUser);
       const dataBase = firebase.firestore()
     if(idUser){
         dataBase.collection("posts")
