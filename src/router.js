@@ -34,7 +34,7 @@ export const changeRouter = (hash) => {
         listenerFile()
         logOut()
         onAuth(mostrarNombreUsuario)
-        // mostrarPhoto()
+        mostrarPhoto()
       break;
       default:
       root.innerHTML = `<h2>Página no existe</h2>`;
