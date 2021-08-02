@@ -75,7 +75,7 @@ function listarPosts(idUser) {
       `
     }
 
-    // esta dentro de un ciclo****
+    // Javi esta dentro de un ciclo****
         divPost.innerHTML = html
         document.getElementById('boxPosted').appendChild(divPost)
  
@@ -125,7 +125,6 @@ function listenerFile() {
     });
 }
 
-
 function listenersPosts() {
   document.getElementById('btnCrearPost').addEventListener('click',()=>{ 
     let autor = firebase.auth().currentUser.displayName;
@@ -133,7 +132,6 @@ function listenersPosts() {
     crearPost( autor , comentario , imagenURL )
   })
 } ;
-
 
 
 export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarPhoto, mostrarsaludo}
