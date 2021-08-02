@@ -1,6 +1,6 @@
 
 import { crearPost, obtenerPost } from "./post.js"
-import { likePost, showLikes } from './postInteraction.js';
+import { likePost, showLikes, deletePost } from './postInteraction.js';
 
 var imagenURL="";
 
@@ -60,14 +60,22 @@ function listarPosts(idUser) {
       html += `</div>
     <div class="boxBtn">
       <div class="like-container">
-
-      <button id='like' class='likeButton' value='${doc.id}'><i class="fas fa-heart"></i></button>
+      <button id='like' class='likeButton' value='${doc.id}'>
+        <i class="fas fa-heart"></i>
+      </button>
           <br>
           <p style="display:inlike-block;">${data.like.length} Me gusta</p>
-
+      </div>`;
+       if(firebase.auth().currentUser){
+      html +=  `<div>
+        <button id='deletePost' value='${doc.id}' class='btnDelete'>
+          <i class="fas fa-trash-alt"></i></button>
       </div>
     </div>
       `
+    }
+
+    // esta dentro de un ciclo****
         divPost.innerHTML = html
         document.getElementById('boxPosted').appendChild(divPost)
  
@@ -76,12 +84,18 @@ function listarPosts(idUser) {
      
           item.addEventListener('click', () => likePost(item.value, item));
         });
+
         likeButton.forEach((item) => {
     
           item.addEventListener('onload', showLikes(item.value, item));
         });
     
   });
+      // Evento para boton DELETE POST
+      const btnDeleteList = document.querySelectorAll('#deletePost');
+      btnDeleteList.forEach((item) => {
+        item.addEventListener('click', () => deletePost (item.value));
+      });
   })
 }
 
@@ -119,6 +133,7 @@ function listenersPosts() {
     crearPost( autor , comentario , imagenURL )
   })
 } ;
+
 
 
 export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarPhoto, mostrarsaludo}
