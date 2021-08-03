@@ -8,4 +8,9 @@
     cursor:pointer;
     color:#7EB3DD;  
 }
+.like-container{
+ display:flex;
+ /* flex-direction: */
+ /* justify-content: flex-start; */
+}
 

@@ -1,3 +1,5 @@
+import {listarPosts} from "./postController.js";
+
 // verifies if the user like post already
 export const isLiked = (likes) => {
     for (let i = 0; i < likes.length; i += 1) {
@@ -18,7 +20,6 @@ export const isLiked = (likes) => {
       .get()
       .then((doc) => {
         const userName = firebase.auth().currentUser.displayName;
-        console.log("camion",doc.data().like)
         const findUserLike = isLiked(doc.data().like);
         if (findUserLike === true) {
           firebase
@@ -28,6 +29,7 @@ export const isLiked = (likes) => {
             .update({
               like: firebase.firestore.FieldValue.arrayRemove(userName),
             });
+         
           corelike.style.color = '#0a0a0a';
         } else {
           firebase
@@ -40,7 +42,9 @@ export const isLiked = (likes) => {
           corelike.style.color = '#e23b3b';
         }
       });
-  };
+      listarPosts()
+
+    };
   
   // verifies if the current user put like in the posts
   export const showLikes = (postId, likeButton) => {
@@ -62,3 +66,6 @@ export const isLiked = (likes) => {
       });
   };
 
+
+// counterlikes.value;
+// return counterlikes

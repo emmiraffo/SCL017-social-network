@@ -64,7 +64,7 @@ function listarPosts(idUser) {
 
       <button id='like' class='likeButton' value='${doc.id}'><i class="fas fa-heart"></i></button>
           <br>
-          <p style="display:inlike-block;">${data.like.length} Me gusta</p>
+          <p id='${doc.id}'>${data.like.length} Me gusta</p>
 
       </div>
     </div>
