@@ -19,6 +19,7 @@ function crearPost (autor, comentario, imagen) {
     .then(refDoc =>{
         //console.log("Id del post => ${refDoc.id}")
         listarPosts()
+        
     })
     .catch(error => {
         alert("error creando el post => ${error}")

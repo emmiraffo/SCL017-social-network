@@ -67,5 +67,21 @@ export const isLiked = (likes) => {
   };
 
 
-// counterlikes.value;
-// return counterlikes
+  // funcion para eliminar Post  ******REVISAR
+  export const deletePost = (postId) => {
+    console.log(postId);
+    const isConfirm = window.confirm('¿Seguro quieres eliminar tu post?');
+    if (isConfirm === true) {
+      firebase
+      .firestore()
+      .collection('posts')
+      .doc(postId)
+      .delete()
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error('error al eliminar post:  ', error);
+      });
+    }
+  };
