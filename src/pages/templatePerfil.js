@@ -28,7 +28,4 @@ export const perfil = `
     <a id="flogOut"><i class="fa fa-power-off"> </i><br>Salir</a>
   </footer>
   </div>
-`
-
-
-
+`;

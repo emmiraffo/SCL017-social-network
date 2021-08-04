@@ -4,7 +4,7 @@ function openModal() {
   const modalC = document.querySelectorAll('.modal-container')[0];
   const modal = document.querySelectorAll('.modal')[0];
 
-  document.getElementById('btnRegister').addEventListener('click', function (e) {
+  document.getElementById('btnRegister').addEventListener('click', (e) => {
     e.preventDefault();
     modalC.style.opacity = '1';
     modalC.style.visibility = 'visible';
@@ -17,10 +17,10 @@ function closeModal() {
   const modal = document.querySelectorAll('.modal')[0];
   const modalC = document.querySelectorAll('.modal-container')[0];
 
-  cerrar.addEventListener('click', function () {
+  cerrar.addEventListener('click', () => {
     modal.classList.toggle('modal-close');
 
-    setTimeout(function () {
+    setTimeout(() => {
       modalC.style.opacity = '0';
       modalC.style.visibility = 'hidden';
     }, 900);
@@ -48,9 +48,9 @@ function registerUser() {
           .catch((error) => {
             console.error(error);
             document.getElementById('messageModal').innerHTML(error.message);
-        });
+          });
         // se debe cerrar
-         firebase.auth().signOut();
+        firebase.auth().signOut();
 
         const message = 'Revisa tu email para verificar correo e Inicia Sesión';
         document.getElementById('messageModal').innerHTML = message;
@@ -69,72 +69,71 @@ function logInGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().signInWithPopup(provider)
-      .then((result) => {
+      .then(() => {
         window.location.href = '#/home';
       })
 
-    .catch((error) => {
-      console.error(error);
+      .catch((error) => {
+        console.error(error);
       });
-    });
+  });
 }
 
 // para cerrar sesión
 function logOut() {
   document.getElementById('flogOut').addEventListener('click', () => {
     firebase.auth().signOut()
-    .then(function () {
+      .then(() => {
         console.log('sesion cerrada');
         window.location.hash = '';
-      }).catch(function (error) {
+      }).catch((error) => {
         console.log(error);
       });
   });
 
   document.getElementById('logOut').addEventListener('click', () => {
     firebase.auth().signOut()
-      .then(function () {
+      .then(() => {
         console.log('sesion cerrada');
         window.location.hash = '';
       })
-        .catch(function (error) {
-         console.log(error);
-        });
-    });
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 }
 
 // para iniciar sesión
-function signIn(){
-  document.getElementById('btnSingIn').addEventListener('click',()=>{  
+function signIn() {
+  document.getElementById('btnSingIn').addEventListener('click', () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-        window.location.href="#/home";
-        })
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => {
+        window.location.href = '#/home';
+      })
 
-    .catch((error) => {
-         console.log(error);
-         document.getElementById('message').innerHTML=error;
-        });
-    });
+      .catch((error) => {
+        console.log(error);
+        document.getElementById('message').innerHTML = error;
+      });
+  });
 }
 
-//  funcion que observa los cambios del usuario 
-function onAuth(looged, logout){
+//  funcion que observa los cambios del usuario
+function onAuth(looged, logout) {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        if (typeof looged == "function") {
-            looged()
-        }
-    } else {
-        if (typeof logout == "function") {
-            logout()
-        }
+      if (typeof looged === 'function') {
+        looged();
+      }
+    } else if (typeof logout === 'function') {
+      logout();
     }
   });
 }
 
-export {registerUser, signIn, logOut, openModal, closeModal, logInGoogle, onAuth}
-  
+export {
+  registerUser, signIn, logOut, openModal, closeModal, logInGoogle, onAuth,
+};

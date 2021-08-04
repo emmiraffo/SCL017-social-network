@@ -1,22 +1,13 @@
-
-const firestore = () => {
-    return {
-        collection: (nameCollection) => {
-            return {
-                add: (objData) => {
-                    return new Promise ((resolve) => {
-                        resolve("el post fue creado")
-                    })
-                }
-            }
-        }
-    }
-}
+const firestore = () => ({
+  collection: (nameCollection) => ({
+    add: (objData) => new Promise((resolve) => {
+      resolve('el post fue creado');
+    }),
+  }),
+});
 
 const firebase = {
-    firestore: firestore
-}
+  firestore,
+};
 
-export default jest.fn(() => {
-    return firebase;
-})
+export default jest.fn(() => firebase);
