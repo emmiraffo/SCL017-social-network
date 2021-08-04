@@ -1,7 +1,13 @@
 import {listarPosts} from "./postController.js";
 
 
+
 function crearPost (autor, comentario, imagen) {
+    const textPost = document.getElementById("textPost").value;
+    if(textPost.length == 0){
+        alert ("Ingresa un texto valido");
+    }
+    else { 
     const dataBase = firebase.firestore()
     var obj = {
         autor: autor,
@@ -9,11 +15,11 @@ function crearPost (autor, comentario, imagen) {
         imagen: imagen,
         fecha: firebase.firestore.FieldValue.serverTimestamp(),
         like:[],
-        dislike:[],
         userId: firebase.auth().currentUser.uid, //para agregar id al documento de firestore
         userName: firebase.auth().currentUser.displayName, 
 
     }
+
 
     return dataBase.collection('posts').add(obj)
     .then(refDoc =>{
@@ -21,11 +27,14 @@ function crearPost (autor, comentario, imagen) {
         listarPosts()
         
     })
+
     .catch(error => {
         alert("error creando el post => ${error}")
     });
+    
+    
 }
-
+}
 
 
 // CON ESTA FUNCIÓN VAMOS A OBTENER LA LISTA DE POSTS

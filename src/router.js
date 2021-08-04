@@ -7,6 +7,7 @@ import {perfil} from './pages/templatePerfil.js';
 
 // changeRouter funcion para elegir la ruta a la que me dirijo
 export const changeRouter = (hash) => {
+  
   const root = document.getElementById("root");
   switch (hash) {
     case '':
@@ -40,5 +41,6 @@ export const changeRouter = (hash) => {
       root.innerHTML = `<h2>Página no existe</h2>`;
       break;
    
+    }
   }
-}
+
