@@ -1,10 +1,8 @@
 
-import { crearPost, obtenerPost } from "./post.js"
-import { likePost, showLikes, deletePost } from './postInteraction.js';
+import { crearPost, obtenerPost ,deletePost, tooggleLike } from "./post.js"
+
 
 var imagenURL="";
-
-
 
 
 function mostrarsaludo () {
@@ -37,67 +35,64 @@ function mostrarPhoto () {
 }
 
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
-function listarPosts(idUser) {
- // console.log(idUser);
-  obtenerPost(idUser, (querySnapshot)=>{
-    document.getElementById('boxPosted').innerHTML = ''
-    querySnapshot.forEach((doc) => {
-    //  console.log(`${doc.id} => ${doc.data()}`);
-      let data = doc.data()
-      const divPost = document.createElement('div')
-      divPost.classList.add('card') 
-      var fecha = new Date(data.fecha.seconds*1000).toLocaleString()
-      //console.log(doc.id)
-      let html = `
-      <div class="boxInformation">
-      <h1>${data.autor}</h1>
-      <p>${fecha}</p>
-      <h2>${data.comentario}</h2> `
-      if(data.imagen) {
-        html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`
-      }
-     
-      html += `</div>
-    <div class="boxBtn">
-      <div class="like-container">
-      <button id='like' class='likeButton' value='${doc.id}'>
-        <i class="fas fa-heart"></i>
-      </button>
-          <br>
-          <p style="display:inlike-block;">${data.like.length} Me gusta</p>
-      </div>`;
-       if(firebase.auth().currentUser){
-      html +=  `<div>
-        <button id='deletePost' value='${doc.id}' class='btnDelete'>
-          <i class="fas fa-trash-alt"></i></button>
-      </div>
-    </div>
-      `
-    }
-
-    // esta dentro de un ciclo****
+  function listarPosts(idUser) {
+    const currentUser = firebase.auth().currentUser.uid
+    obtenerPost(idUser, (querySnapshot)=>{
+      document.getElementById('boxPosted').innerHTML = ''
+      querySnapshot.forEach((doc) => {
+        //  console.log(`${doc.id} => ${doc.data()}`);
+          let data = doc.data()
+          const divPost = document.createElement('div')
+            divPost.classList.add('card') 
+          var fecha = new Date(data.fecha.seconds*1000).toLocaleString()
+          //console.log(doc.id)
+          let html = `
+            <div class="boxInformation">
+              <h1>${data.autor}</h1>
+              <p>${fecha}</p>
+              <h2>${data.comentario}</h2> `
+          if(data.imagen) {
+              html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`
+          }
+          
+          if(currentUser){
+            
+          html += `<div class="interaction"><button class='like' value='${doc.id}'>`
+          if(data.like[currentUser]) {
+            html += `😍`
+          } else {
+            html += `🙂`
+          }
+          html += `</button><br>`
+          if (data.countLike) {
+            html += `</button><br><p>${data.countLike} Me gusta</p>`
+          }
+          html += `<button  id='editPost' value='${doc.id}' class='btnEdit'><i class="fas fa-pen"></i></button>
+            <button id='deletePost' value='${doc.id}' class='btnDelete'><i class="fas fa-trash-alt"></i></button>
+          </div>`;   
+        }
         divPost.innerHTML = html
         document.getElementById('boxPosted').appendChild(divPost)
- 
-        const likeButton = document.querySelectorAll('#like');
-        likeButton.forEach((item) => {
-     
-          item.addEventListener('click', () => likePost(item.value, item));
-        });
+    
+      });
 
-        likeButton.forEach((item) => {
-    
-          item.addEventListener('onload', showLikes(item.value, item));
-        });
-    
-  });
       // Evento para boton DELETE POST
       const btnDeleteList = document.querySelectorAll('#deletePost');
       btnDeleteList.forEach((item) => {
         item.addEventListener('click', () => deletePost (item.value));
       });
-  })
-}
+
+      const btnLike = document.querySelectorAll('.like');
+      btnLike.forEach ((item) =>  {
+        item.addEventListener('click', (e) => {
+          console.log("me diste like", e)
+          tooggleLike(e.target.value, currentUser)
+        })
+      })
+    
+    })
+  }
+
 
 //OBTENER IMAGEN PARA POTS
 function listenerFile() {
@@ -134,6 +129,10 @@ function listenersPosts() {
   })
 } ;
 
+//FUNCION PARA MOSTRAR LOS LIKES Y CONTARLOS
 
+
+
+  
 
 export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarPhoto, mostrarsaludo}

@@ -1,4 +1,4 @@
-// verifies if the user like post already
+/* verifies if the user like post already
 export const isLiked = (likes) => {
     for (let i = 0; i < likes.length; i += 1) {
       if (likes[i] === firebase.auth().currentUser.displayName) {
@@ -62,22 +62,5 @@ export const isLiked = (likes) => {
       });
   };
 
-  // funcion para eliminar Post  ******REVISAR
-  export const deletePost = (postId) => {
-    console.log(postId);
-    const isConfirm = window.confirm('¿Seguro quieres eliminar tu post?');
-    if (isConfirm === true) {
-      firebase
-      .firestore()
-      .collection('posts')
-      .doc(postId)
-      .delete()
-      .then(() => {
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error('error al eliminar post:  ', error);
-      });
-    }
-  };
-
+  // 
+*/
