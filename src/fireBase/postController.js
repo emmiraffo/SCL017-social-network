@@ -73,13 +73,7 @@ function listarPosts(idUser) {
           }
 
         }
-        html += '</button><br>';
-        if (data.countLike) {
-          html += `</button><br><p>${data.countLike} Me gusta</p>`;
-        }
-        html += `<button  id='editPost' value='${doc.id}' class='btnEdit'><i class="fas fa-pen"></i></button>
-            <button id='deletePost' value='${doc.id}' class='btnDelete'><i class="fas fa-trash-alt"></i></button>
-          </div>`;
+      
       
       divPost.innerHTML = html;
       document.getElementById('boxPosted').appendChild(divPost);
