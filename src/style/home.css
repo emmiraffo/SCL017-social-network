@@ -57,7 +57,13 @@ header p {
 
 .photo img {
     border-radius: 100px;  
-    width: 100px;  
+    width: 150px;  
+    border-color: rgb(41, 169, 255);
+    border-style: solid;
+    position: absolute;
+    top: 11%;
+    left: 3%;
+      
 }
 
 .uploader {
@@ -72,16 +78,28 @@ header p {
     grid-template-rows: 25% 80%;   
 }
 
+.like{
+    border: none;
+}
+
+.btnEdit{
+    border: none;
+}
+
+.btnDelete{
+    border: none; 
+}
+
 .containerPost  {
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
-    width:80%;
+    width:70%;
     justify-content: end;
     align-items: flex-end;
     position: absolute;
     top: 12%;
-    left: 10%;   
+    left: 25%;   
     display: flex;
     flex-direction: column ;
     background-color: lightslategrey;
@@ -89,6 +107,8 @@ header p {
     border: 1px solid #b4b4b4;
     border-radius: 20px;
 }
+
+
 
 .containerPost textarea{
     margin: auto;
@@ -106,7 +126,7 @@ textarea::placeholder { color: rgb(255, 255, 255); }
 
 .divenviar {
     display: grid;
-    grid-template-columns: 20% 30%;
+    grid-template-columns: 30% 30% ;
     grid-template-rows: 100%;
     width: 100%;
     justify-content: end;
@@ -180,17 +200,17 @@ textarea::placeholder { color: rgb(255, 255, 255); }
     color: rgb(104, 105, 105);
 }
 
-
-/*.imgMovie img {
-position: absolute;
-width: 100%;
-}*/
-
-
 #boxPosted{
     margin: auto;
     width:100%;
     grid-row:2;
+}
+
+.interaction{
+    display: flex;
+    flex-direction:inherit;
+    align-items: center;
+    align-content: center;
 }
 
 
@@ -263,7 +283,8 @@ header p {
 
 .card{
     font-size: 12px;
-    }
+}
+
 
    
 .divenviar {
@@ -355,11 +376,12 @@ header a:hover {
 
 .header img{
     width: auto; 
-    margin-left: 10%;
 }
 
 .photo img {
-    width: 50%;  
+    width:120px;
+    left: 12%; 
+
 }
 
 
@@ -410,9 +432,8 @@ header a:hover {
     width: 100%; 
         }
 
-.imgMovie {
-    width: 50px;
-    }
-
+.containerPost  {
+left: 20%;
+width: 60%;
 
 }
