@@ -48,26 +48,33 @@ function listarPosts(idUser) {
             <div class="boxInformation">
               <h1>${data.autor}</h1>
               <p>${fecha}</p>
-              <h2>${data.comentario}</h2> `;
-      if (data.imagen) {
-        html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`;
-      }
+              <h2>${data.comentario}</h2> `
+          if(data.imagen) {
+              html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`
+          }
+          
+          if(currentUser){
+            
+          html += `<div class="interaction"><button class='like' value='${doc.id}'>`
+          if(data.like[currentUser]) {
+            html += `😍`
+          } else {
+            html += `🙂`
+          }
+          html += `</button><br>`
+          if (data.countLike) {
+            html += `</button><br><p>${data.countLike} Me gusta</p>`
+          }
+          // Condición para que la acción de eliminar y editar solo sean de tus post
+          if (data.userId === firebase.auth().currentUser.uid) {
+            html += `<button  id='editPost' value='${doc.id}' class='btnEdit'><i class="fas fa-pen"></i></button>
+              <button id='deletePost' value='${doc.id}' class='btnDelete'><i class="fas fa-trash-alt"></i></button>
+            </div>`;   
+          }
 
-      if (currentUser) {
-        html += `<div class="interaction"><button class='like' value='${doc.id}'>`;
-        if (data.like[currentUser]) {
-          html += '😍';
-        } else {
-          html += '🙂';
         }
-        html += '</button><br>';
-        if (data.countLike) {
-          html += `</button><br><p>${data.countLike} Me gusta</p>`;
-        }
-        html += `<button  id='editPost' value='${doc.id}' class='btnEdit'><i class="fas fa-pen"></i></button>
-            <button id='deletePost' value='${doc.id}' class='btnDelete'><i class="fas fa-trash-alt"></i></button>
-          </div>`;
-      }
+      
+      
       divPost.innerHTML = html;
       document.getElementById('boxPosted').appendChild(divPost);
     });
