@@ -8,7 +8,7 @@ var imagenURL="";
 function mostrarsaludo () {
   const divName = document.createElement('div')
   divName.innerHTML = ` 
-  <p id="nombreUsuario"><br> !Hola, ${firebase.auth().currentUser.displayName}! </p>
+  <p id="nombreUsuario"><br> !Hola, ${firebase.auth().currentUser.displayName}!</p>
   `
   document.getElementById('nombre').appendChild(divName)
 }
@@ -35,47 +35,6 @@ function mostrarPhoto () {
 }
 
 //DINAMISMO PARA MOSTRAR POST DE DATABASE
-<<<<<<< HEAD
-function listarPosts(idUser) {
- // console.log(idUser);
-  obtenerPost(idUser, (querySnapshot)=>{
-    document.getElementById('boxPosted').innerHTML = ''
-    querySnapshot.forEach((doc) => {
-    //  console.log(`${doc.id} => ${doc.data()}`);
-      let data = doc.data()
-      const divPost = document.createElement('div')
-      divPost.classList.add('card') 
-      var fecha = new Date(data.fecha.seconds*1000).toLocaleString()
-      //console.log(doc.id)
-      let html = `
-      <div class="boxInformation">
-      <h1>${data.autor}</h1>
-      <p>${fecha}</p>
-      <h2>${data.comentario}</h2> `
-      if(data.imagen) {
-        html += ` <div clase="imgMovie"><img src=${data.imagen} style="width: 100%";></div>`
-      }
-     
-      html += `</div>
-    <div class="boxBtn">
-      <div class="like-container">
-      <button id='like' class='likeButton' value='${doc.id}'>
-        <i class="fas fa-heart"></i>
-      </button>
-          <br>
-          <p style="display:inlike-block;">${data.like.length} Me gusta</p>
-      </div>`;
-       if(firebase.auth().currentUser){
-      html +=  `<div>
-        <button id='deletePost' value='${doc.id}' class='btnDelete'>
-          <i class="fas fa-trash-alt"></i></button>
-      </div>
-    </div>
-      `
-    }
-
-    // Javi esta dentro de un ciclo****
-=======
   function listarPosts(idUser) {
     const currentUser = firebase.auth().currentUser.uid
     obtenerPost(idUser, (querySnapshot)=>{
@@ -108,11 +67,14 @@ function listarPosts(idUser) {
           if (data.countLike) {
             html += `</button><br><p>${data.countLike} Me gusta</p>`
           }
-          html += `<button  id='editPost' value='${doc.id}' class='btnEdit'><i class="fas fa-pen"></i></button>
-            <button id='deletePost' value='${doc.id}' class='btnDelete'><i class="fas fa-trash-alt"></i></button>
-          </div>`;   
+          // Condición para que la acción de eliminar y editar solo sean de tus post
+          if (data.userId === firebase.auth().currentUser.uid) {
+            html += `<button  id='editPost' value='${doc.id}' class='btnEdit'><i class="fas fa-pen"></i></button>
+              <button id='deletePost' value='${doc.id}' class='btnDelete'><i class="fas fa-trash-alt"></i></button>
+            </div>`;   
+          }
+
         }
->>>>>>> 2ea78b03029431de9b71cd26c2c4142f41b43dd0
         divPost.innerHTML = html
         document.getElementById('boxPosted').appendChild(divPost)
     
@@ -162,6 +124,7 @@ function listenerFile() {
     });
 }
 
+
 function listenersPosts() {
   document.getElementById('btnCrearPost').addEventListener('click',()=>{ 
     let autor = firebase.auth().currentUser.displayName;
@@ -174,9 +137,6 @@ function listenersPosts() {
 
 
 
-<<<<<<< HEAD
-=======
   
 
->>>>>>> 2ea78b03029431de9b71cd26c2c4142f41b43dd0
 export { listenersPosts, listarPosts, listenerFile , mostrarNombreUsuario , mostrarPhoto, mostrarsaludo}
