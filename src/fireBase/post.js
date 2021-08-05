@@ -1,60 +1,61 @@
-import {listarPosts} from "./postController.js";
+import { listarPosts } from './postController.js';
 
+function crearPost(autor, comentario, imagen) {
+  const textPost = document.getElementById('textPost').value;
+  if (textPost.length === 0) {
+    alert('Ingresa un texto valido');
+  } else {
+    const dataBase = firebase.firestore();
+    const obj = {
+      autor,
+      comentario,
+      imagen,
+      fecha: firebase.firestore.FieldValue.serverTimestamp(),
+      like: [],
+      userId: firebase.auth().currentUser.uid, // para agregar id al documento de firestore
+      userName: firebase.auth().currentUser.displayName,
 
-function crearPost (autor, comentario, imagen) {
-    const dataBase = firebase.firestore()
-    var obj = {
-        autor: autor,
-        comentario: comentario,
-        imagen: imagen,
-        fecha: firebase.firestore.FieldValue.serverTimestamp(),
-        like:[],
-        countLike: 0,
-        userId: firebase.auth().currentUser.uid, //para agregar id al documento de firestore
-        userName: firebase.auth().currentUser.displayName, 
-        userEmail: firebase.auth().currentUser.email,
-
-    }
+    };
 
     return dataBase.collection('posts').add(obj)
-    .then(refDoc =>{
-        //console.log("Id del post => ${refDoc.id}")
-        listarPosts()
-        
-    })
-    .catch(error => {
-        alert("error creando el post => ${error}")
-    });
+      .then(() => {
+        // console.log("Id del post => ${refDoc.id}")
+        listarPosts();
+      })
+
+      .catch(() => {
+        // alert('error creando el post => ${error}');
+        alert('error creando el post');
+      });
+  }
+  return false;
 }
-
-
 
 // CON ESTA FUNCIÓN VAMOS A OBTENER LA LISTA DE POSTS
 
-function obtenerPost (idUser, callBack) {
+function obtenerPost(idUser, callBack) {
   //  console.log(idUser);
-      const dataBase = firebase.firestore()
-    if(idUser){
-        dataBase.collection("posts")
-        .orderBy('fecha', 'desc')//para que aparezcan los post en orden/
-        .where('userId', '==', firebase.auth().currentUser.uid)
-        .get()
-        .then(callBack);
-    }else{
-      
-        dataBase.collection("posts")
-        .orderBy('fecha', 'desc')//para que aparezcan los post en orden/
-        .get()
-        .then(callBack);
-    }
+  const dataBase = firebase.firestore();
+  if (idUser) {
+    dataBase.collection('posts')
+      .orderBy('fecha', 'desc')// para que aparezcan los post en orden/
+      .where('userId', '==', firebase.auth().currentUser.uid)
+      .get()
+      .then(callBack);
+  } else {
+    dataBase.collection('posts')
+      .orderBy('fecha', 'desc')// para que aparezcan los post en orden/
+      .get()
+      .then(callBack);
+  }
 }
 
 // funcion para eliminar Post  ******REVISAR
- const deletePost = (postId) => {
-    console.log(postId);
-    const isConfirm = window.confirm('¿Seguro quieres eliminar tu post?');
-    if (isConfirm === true) {
-      firebase
+const deletePost = (postId) => {
+  console.log(postId);
+  const isConfirm = window.confirm('¿Seguro quieres eliminar tu post?');
+  if (isConfirm === true) {
+    firebase
       .firestore()
       .collection('posts')
       .doc(postId)
@@ -65,50 +66,45 @@ function obtenerPost (idUser, callBack) {
       .catch((error) => {
         console.error('error al eliminar post:  ', error);
       });
-    }
-  };
-
+  }
+};
 
 // PARA EDITAR LOS POST
 const updatePost = (id, updatedPost) => database.collection('post').doc(id).update(updatedPost);
 
-
 // PARA LOS LIKES
 
-function tooggleLike (postId, uid) {
-  var db = firebase.firestore();
-  var postRef = db.collection("posts").doc(postId);
-  console.log(postRef)
+function tooggleLike(postId, uid) {
+  const db = firebase.firestore();
+  const postRef = db.collection('posts').doc(postId);
+  console.log(postRef);
 
-  db.runTransaction((transaction) => {
-    return transaction.get(postRef).then((doc) => {
-        if (!doc.exists) {
-            throw "Document does not exist!";
+  db.runTransaction((transaction) => transaction.get(postRef).then((doc) => {
+    if (!doc.exists) {
+      throw 'Document does not exist!';
+    }
+    const post = doc.data();
+
+    if (post) {
+      if (post.like && post.like[uid]) {
+        post.countLike--;
+        post.like[uid] = null;
+      } else {
+        post.countLike++;
+        if (!post.like) {
+          post.like = {};
         }
-        var post = doc.data()
-
-        if (post) {
-          if (post.like && post.like[uid]) {
-            post.countLike--;
-            post.like[uid] = null;
-          } else {
-            post.countLike++;
-            if (!post.like) {
-              post.like = {};
-            }
-            post.like[uid] = true;
-          }
-        }
-        transaction.update(postRef, post);
-    });
-    }).then(() => {
-        console.log("Transaction successfully committed!");
-    }).catch((error) => {
-        console.log("Transaction failed: ", error);
-    });
-
+        post.like[uid] = true;
+      }
+    }
+    transaction.update(postRef, post);
+  })).then(() => {
+    console.log('Transaction successfully committed!');
+  }).catch((error) => {
+    console.log('Transaction failed: ', error);
+  });
 }
 
-
-
-export { crearPost , obtenerPost , tooggleLike , deletePost, updatePost}
+export {
+  crearPost, obtenerPost, tooggleLike, deletePost, updatePost,
+};
