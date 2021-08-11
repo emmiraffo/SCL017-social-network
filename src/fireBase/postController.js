@@ -1,9 +1,8 @@
-import {
-  crearPost, obtenerPost, deletePost, tooggleLike,
-} from './post.js';
+import { crearPost, obtenerPost, deletePost, tooggleLike } from './post.js';
 
 let imagenURL = '';
 
+// Saludos, Nombre de usuario y Foto 
 function mostrarsaludo() {
   const divName = document.createElement('div');
   divName.innerHTML = ` 

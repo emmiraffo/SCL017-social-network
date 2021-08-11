@@ -11,7 +11,7 @@ export const templateInicioSesion = () => {
             <section class="sectionLogo">
             <img src="./images/1 (2).png" class="logo" alt="logo">
             </section>
-            <div class="div2">
+            <div class="login">
             <section>
                 <input class="inputlogIn" type="email"    id="email" placeholder="E-mail">
                 <input class="inputlogIn" type="password" id="password" placeholder="Contraseña">
@@ -25,9 +25,8 @@ export const templateInicioSesion = () => {
 
             <section>
                 <p class="textLogin">Ingresa con:</p>
-
                 <button id="btnGoogle"> 
-                    <img class="btnIcon" src="./images/google-removebg-preview.png"  alt="google">
+                    <img class="btnIcon" src="./images/g.png""  alt="google">
                 </button> 
                
             </section>
