@@ -1,7 +1,7 @@
 export const perfil = `
     <div id=" sectionHome">
     <header class="header">
-   <a href="#/home"> <img  src="/images/4.png"/></a>
+   <a href="#/home"> <img  src="./images/4.png"/></a>
    <div id="nombre">  </div>
    
     <a class="a"  href="#/home"><i class="fa fa-home"> </i><br>Home</a>
