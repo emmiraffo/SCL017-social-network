@@ -6,9 +6,9 @@ export const templateRegistro = `
 
              <div class="contentModal">
                     <div class="textInicioModal">
-                       <h1> Bienvenido a Mira </h1>
-                       <h3> Comparte reseñas sobre las peliculas y series que estas viendo.</h3>
-                       <p class="textModal"> Comienza Ahora </p>
+                       <h1> Bienvenid@ a MIRA </h1>
+                       <h3> Comparte reseñas sobre las peliculas y series que estas viendo </h3>
+                       <p class="textModal"> ¡Comienza Ahora!</p>
                     </div>
                     <div class="textFormModal">
                         <div class="registro-formulario">

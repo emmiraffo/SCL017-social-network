@@ -1,5 +1,5 @@
 .containerFondo{
-  background-image: url("../images/fondo1.png");
+  background-image: url("../images/fond.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -19,15 +19,15 @@
   width: 100%;
 }
 
-.div2{
+.login{
   background-color: rgba(243, 244, 247, 0.9);
   box-shadow: 3px 3px 7px 1px #a0a4a7;
   padding: 30px;
   border-radius: 30px;
 
 }
-.logo{
-  width: 50%;
+.sectionLogo img{
+  width: 45%;
 }
 
 .inputlogIn {
@@ -43,6 +43,7 @@
   color: black;
   font-weight: bold;
   font-size: large;
+  margin: 0;
 }
 
 .btnLogin{
@@ -66,6 +67,8 @@
 #btnGoogle{
   border:0 none;
   cursor: pointer;
+  background-color:rgba(255, 255, 240, 0);
+  
 }
 
 
@@ -84,6 +87,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
   }
 
 .modal {
@@ -100,6 +104,7 @@
     position: relative;
     transition: transform 1s;
     transform: translateY(0%);
+    border-radius: 30px;
   
   }
   
@@ -162,14 +167,75 @@
   margin: 10px;
 }
 
+/*PARA VISTA DESKTOP   */
 @media only screen  and (min-width:769px ) {
   .containerDiv{
     margin-left: 300px;
     height: 50px;
   }
-  .logo{
-    width: 60%;
+}
+
+
+/*PARA VISTA IPHONE*/
+@media only screen  and (min-width:375px ) and (MAX-width:900px ) {
+
+  .contentModal {
+   /* opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
   }
+
+.modal {
+    
+    font-size: 15px;
+    width: 80%;
+    height: 500px;
+    background: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    position: relative;
+   
+  
+  }
+  
+.contentModal{
+    display: flex;
+  }
+
+.contentModal h1{
+    color: #38B6FF; 
+    font-size: 25px;
+   
+}
+
+.textModal {
+  color: #EBC43B ;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.textInicioModal, .textFormModal{
+  margin: 0px;
+}
+
+.btnLogin{
+  width: 80%;
+ 
+} 
 
 
 }
