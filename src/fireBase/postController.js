@@ -132,6 +132,6 @@ function listenersPosts() {
 
 }
 
-// FUNCION PARA MOSTRAR LOS LIKES Y CONTARLOS
+
 
 export {listenersPosts, listarPosts, listenerFile, mostrarNombreUsuario, mostrarPhoto, mostrarsaludo};
