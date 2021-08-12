@@ -54,7 +54,7 @@ function listarPosts(idUser) {
           
           if(currentUser){
             
-          html += `<div class="interaction"><button class='like' value='${doc.id}'>`
+          html += `<div class="interaction"><button  class='like' value='${doc.id}'>`
           if(data.like[currentUser]) {
             html += `😍`
           } else {
@@ -121,12 +121,17 @@ function listenersPosts() {
   document.getElementById('btnCrearPost').addEventListener('click', () => {
     const autor = firebase.auth().currentUser.displayName;
     const comentario = document.getElementById('textPost').value;
-    crearPost(autor, comentario, imagenURL);
+    if (comentario.length === 0) {
+      alert('Ingresa un texto valido');
+    } else {
+      document.getElementById('textPost').value = ""
+      crearPost(autor, comentario, imagenURL);
+      imagenURL = ""
+    }  
   });
+
 }
 
 // FUNCION PARA MOSTRAR LOS LIKES Y CONTARLOS
 
-export {
-  listenersPosts, listarPosts, listenerFile, mostrarNombreUsuario, mostrarPhoto, mostrarsaludo,
-};
+export {listenersPosts, listarPosts, listenerFile, mostrarNombreUsuario, mostrarPhoto, mostrarsaludo};
