@@ -85,14 +85,17 @@ header p {
 
 .like{
     border: none;
+    background-color:rgba(255, 255, 240, 0);
 }
 
 .btnEdit{
     border: none;
+    background-color:rgba(255, 255, 240, 0);
 }
 
 .btnDelete{
     border: none; 
+    background-color:rgba(255, 255, 240, 0);
 }
 
 .containerPost  {
@@ -258,11 +261,12 @@ footer a {
 @media only screen  and (min-width:375px ) and (MAX-width:767px ) {
 
 header{
-    grid-template-columns: 20% 50% 20% ;   
+    grid-template-columns: 20% 60% 20% ;   
     }
 
 header p {
     font-size: 15PX;
+    padding: 0;
     }
 
 .photo img {

@@ -1,7 +1,6 @@
 # MIRA Red Social
 
-![MIRA](src/images/logo.png)
-
+<img src="https://github.com/emmiraffo/SCL017-social-network/blob/master/src/images/2.png" width="300px"/>
 
 MIRA es una red social que se creó pensando en aquellas personas, que disfrutan de series y peliculas y frente a la gran oferta que existe en diversas plataformas buscan tener referencias si lo que pretenden ver se adecua realmente a sus intereses, para ello necesitan reseñas y opiniones de otros usuarios. Además permite a los usuarios postear sobre estrenos, novedades, buscar aquella pelicula de la cual "no recuerdan el nombre", comentar teorias sobre finales abiertos, entre otras.
 
@@ -65,27 +64,13 @@ Una vez identificado el problema y el tipo de usuario, se procedió a diseñar l
 
 ## Prototipo de baja fidelidad:
 
-![baja](src/images/propoBaja.jpg)
+<img src="https://github.com/emmiraffo/SCL017-social-network/blob/master/src/images/propoBaja.jpg" width="500px"/>
+
 
 ## Prototipo de alta fidelidad (Figma): https://www.figma.com/file/EmztTJd6TLyGL9t3UfGohS/Red-Social?node-id=178%3A63
 
-Inicio y Registro de Usuario:
-
 ![FIGMA1](src/images/figmaInicio.png)
 
-![figma2](src/images/figmaRegistro.png)
-
-<!-- pendiente -->
-
-Muro:
-
-<!-- pendiente -->
-
-[Link a Proyecto en Figma]()
-
-## TESTEOS DE USUARIOS
-
-<!-- PENDIENTE -->
 
 ### DESARROLLADORAS
 
@@ -94,3 +79,6 @@ Javiera Herrera
 Emmi Raffo
 
 Karinna Sepúlveda
+
+
+## Link de la aplicación: https://emmiraffo.github.io/SCL017-social-network/src/
